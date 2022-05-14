@@ -1,0 +1,792 @@
+<!-- Left Column (Progress Bar) -->
+<div class="column col-desc">
+    <!-- <a id="back-button" class="cursor" [routerLink]="[ '/home']"
+        style="padding-left: 20px;padding-top: 5px !important;"><img width="20" style="margin-right: 15px !important;"
+            class="back-img" height="20" src="../assets/images/back (2).svg" alt="">
+        <label style="color: black;" for="">Go back</label> </a> -->
+
+    <div style="width: 60%;margin: 0 auto;text-align: left;">
+
+        <h1 style="font-size: 24px; padding-top:0px;padding-bottom: 15px;padding-left: 12px;">Data Update
+        </h1>
+
+        <!-- Progress side bar -->
+        <div class="ul-class-cont">
+            <!-- Account Validation -->
+            <div>
+                <div class="active-bg-icon" style="float: left;">
+                    <img *ngIf="!isAccountStepperActive && !isAccountStepperDone" src="./assets/images/Group775.png" height="20" width="20">
+                    <img *ngIf="isAccountStepperActive && !isAccountStepperDone" src="./assets/images/Group774.png" height="20" width="20">
+                    <img *ngIf="!isAccountStepperActive && isAccountStepperDone" src="./assets/images/Group773.png" height="20" width="20">
+                    <p class="li-icon-seperator" style="height: 40px !important;"></p>
+                </div>
+                <div class="li-content">
+                    <p class="li-subtitle-disabled" [ngClass]="{'disabled-text': !isAccountStepperActive && !isAccountStepperDone}">Account Validation
+                    </p>
+                    <p class="li-subcontent-disabled" [ngClass]="{'disabled-text': !isAccountStepperActive && !isAccountStepperDone}"> Provide your correct account number and phone number to validate your account
+                    </p>
+                </div>
+            </div>
+
+            <!-- Session -->
+            <div>
+                <div class="active-bg-icon" style="float: left;">
+                    <img *ngIf="!isContinueSessionStepperActive && !isContinueSessionStepperDone" src="./assets/images/Group775.png" height="20" width="20">
+                    <img *ngIf="isContinueSessionStepperActive && !isContinueSessionStepperDone" src="./assets/images/Group774.png" height="20" width="20">
+                    <img *ngIf="!isContinueSessionStepperActive && isContinueSessionStepperDone" src="./assets/images/Group773.png" height="20" width="20">
+                    <p class="li-icon-seperator" style="height: 40px !important;"></p>
+                </div>
+                <div class="li-content">
+                    <p class="li-subtitle-disabled" [ngClass]="{'disabled-text': !isContinueSessionStepperActive && !isContinueSessionStepperDone}">
+                        Continue Session
+                    </p>
+                    <p class="li-subcontent-disabled" [ngClass]="{'disabled-text': !isContinueSessionStepperActive && !isContinueSessionStepperDone}">
+                        Do you have existing session?. If yes, enter your Ticket ID and continue from where you left off
+                    </p>
+                </div>
+            </div>
+
+            <!-- Account Type -->
+            <div>
+                <div class="active-bg-icon" style="float: left;">
+                    <img *ngIf="!isAccountTypeStepperActive && !isAccountTypeStepperDone" src="./assets/images/Group775.png" height="20" width="20">
+                    <img *ngIf="isAccountTypeStepperActive && !isAccountTypeStepperDone" src="./assets/images/Group774.png" height="20" width="20">
+                    <img *ngIf="!isAccountTypeStepperActive && isAccountTypeStepperDone" src="./assets/images/Group773.png" height="20" width="20">
+                    <p class="li-icon-seperator" style="height: 10px !important;"></p>
+                </div>
+
+                <div class="li-content">
+                    <p class="li-subtitle-disabled" [ngClass]="{'disabled-text': !isAccountTypeStepperActive && !isAccountTypeStepperDone}">Account Type
+                    </p>
+                    <p class="li-subcontent-disabled" [ngClass]="{'disabled-text': !isAccountTypeStepperActive && !isAccountTypeStepperDone}">
+                        <!-- Please select an account type between <b>Personal</b> and <b>Business</b> -->
+                        Please select an account type and the type of data you want to update
+                    </p>
+                </div>
+            </div>
+
+            <!-- Update Forms -->
+            <div *ngIf="!isBusinessAccount">
+                <div class="active-bg-icon" style="float: left;">
+                    <img *ngIf="!isUpdateFormStepperActive && !isUpdateFormStepperDone" src="./assets/images/Group775.png" height="20" width="20">
+                    <img *ngIf="isUpdateFormStepperActive && !isUpdateFormStepperDone" src="./assets/images/Group774.png" height="20" width="20">
+                    <img *ngIf="!isUpdateFormStepperActive && isUpdateFormStepperDone" src="./assets/images/Group773.png" height="20" width="20">
+                    <p class="li-icon-seperator" style="height: 30px !important;"></p>
+                </div>
+
+                <div class="li-content">
+
+                    <p class="li-subtitle-disabled" [ngClass]="{'disabled-text': !isUpdateFormStepperActive && !isUpdateFormStepperDone}">Data Update
+                    </p>
+                    <p class="li-subcontent-disabled" [ngClass]="{'disabled-text': !isUpdateFormStepperActive && !isUpdateFormStepperDone}">
+                        Please fill out the necessary forms and uploads you want to update.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Upload Required Documents & Verify - CORPORATE/BUSINESS ACCOUNT -->
+            <div *ngIf="isBusinessAccount">
+                <div class="active-bg-icon" style="float: left;">
+                    <img *ngIf="!isUploadCorporateFormDocActive && !isUploadCorporateFormDone" src="./assets/images/Group775.png" height="20" width="20">
+                    <img *ngIf="isUploadCorporateFormDocActive && !isUploadCorporateFormDone" src="./assets/images/Group774.png" height="20" width="20">
+                    <img *ngIf="!isUploadCorporateFormDocActive && isUploadCorporateFormDone" src="./assets/images/Group773.png" height="20" width="20">
+                </div>
+                <div class="li-content">
+                    <p class="li-subtitle-disabled" [ngClass]="{'disabled-text': !isUploadCorporateFormDocActive && !isUploadCorporateFormDone}">
+                        Upload Required Document
+                    </p>
+                    <p class="li-subcontent-disabled" [ngClass]="{'disabled-text': !isUploadCorporateFormDocActive && !isUploadCorporateFormDone}">
+                        Upload the required document to update corporate account in PDF or JPEG format up to 2MB and enter the verification pin sent to the registered phone number
+                    </p>
+                </div>
+
+            </div>
+
+            <!-- Authentication -->
+            <div *ngIf="!isBusinessAccount">
+                <div class="active-bg-icon" style="float: left;">
+                    <img *ngIf="!isAuthenticationFormActive && !isAuthenticationFormDone" src="./assets/images/Group775.png" height="20" width="20">
+                    <img *ngIf="isAuthenticationFormActive && !isAuthenticationFormDone" src="./assets/images/Group774.png" height="20" width="20">
+                    <img *ngIf="!isAuthenticationFormActive && isAuthenticationFormDone" src="./assets/images/Group773.png" height="20" width="20">
+
+                    <p class="li-icon-seperator" style="height: 80px !important;"></p>
+                </div>
+                <div class="li-content">
+                    <p class="li-subtitle-disabled" [ngClass]="{'disabled-text': !isAuthenticationFormActive && !isAuthenticationFormDone}">
+                        Authentication
+                    </p>
+                    <p class="li-subcontent-disabled" [ngClass]="{'disabled-text': !isAuthenticationFormActive && !isAuthenticationFormDone}">
+                        Authentication is required to submit request. Please provide the necessary information!
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- ==================== End of left column ======================= -->
+
+
+<!-- Right Column (Form Sections) -->
+
+<div class="column col-stepper-container">
+
+    <!-- <a id="back-button-mobile" class="cursor" [routerLink]="[ '/home']"
+        style="padding-left: 20px;padding-top: 5px !important;"><img width="20" style="margin-right: 15px !important;"
+            class="back-img" height="20" src="../assets/images/back (2).svg" alt="">
+        <label style="color: black;" for="">Go back</label> </a> -->
+
+    <div class="stepper-container">
+
+        <!-- Mobile -->
+        <h2 id="mobileheader" class="header-cls" #mobileheader>Data Update</h2>
+
+        <mat-horizontal-stepper labelPosition="bottom" #stepper>
+
+            <!-- Account Validation -->
+            <mat-step [stepControl]="accountFormGroup">
+                <form [formGroup]="accountFormGroup">
+
+                    <ng-template matStepLabel>Account Validation</ng-template>
+                    <h4>Please provide your accurate Information</h4>
+
+                    <!-- Spinner -->
+                    <section *ngIf="showSpinner">
+                        <mat-progress-bar class="example-margin" [color]="color" [mode]="mode" [value]="value" [bufferValue]="bufferValue">
+                        </mat-progress-bar>
+                    </section>
+                    <div class="w-100">
+                        <mat-form-field appearance="fill" class="w-100">
+                            <mat-label>Account Number</mat-label>
+                            <input matInput autocomplete="off" maxlength="10" minlength="10" placeholder="Enter Account Number" formControlName="accountNoCtrl" type="text" required>
+                            <mat-hint align="end">Max 10 characters</mat-hint>
+                            <mat-error *ngIf="accountFormGroup.get('accountNoCtrl').hasError('required')">
+                                Account Number is required </mat-error>
+                            <mat-error *ngIf="accountFormGroup.get('accountNoCtrl').hasError('pattern')">
+                                Only numbers are allowed </mat-error>
+
+                        </mat-form-field>
+                    </div>
+                    <div class="w-100">
+
+                        <mat-form-field appearance="fill" class="w-100">
+                            <mat-label>Phone Number</mat-label>
+                            <input matInput autocomplete="off" maxlength="11" minlength="11" placeholder="Enter Phone Number" formControlName="phoneNoCtrl" required>
+                            <mat-hint align="end">Max 11 characters</mat-hint>
+                            <mat-error *ngIf="accountFormGroup.get('phoneNoCtrl').hasError('required')">
+                                Phone Number is required </mat-error>
+                            <mat-error *ngIf="accountFormGroup.get('phoneNoCtrl').hasError('pattern')">
+                                Only numbers are allowed </mat-error>
+                            <mat-error *ngIf="accountFormGroup.get('phoneNoCtrl').hasError('maxlength')">
+                                Phone Number must be 11 characters </mat-error>
+
+                        </mat-form-field>
+                    </div>
+                    <div class="w-100" *ngIf="bvnIsValid">
+                        <button style="background-color: rgba(3, 150, 253, 0.16) ; width: 100%; text-transform: uppercase;
+                    color: #0396FD; height: 50px;" mat-button matStepperPrevious>Back</button>
+                        <button mat-flat-button class="big-buttonStyles" [ngClass]="{'primary': class=='primary'}" [ngClass]="{'disabled': isAwaitingResponse || accountFormGroup.invalid}" mat-button [disabled]="isAwaitingResponse || accountFormGroup.invalid" (click)="proceedFromAccountForm(stepper)">Next</button>
+                    </div>
+
+                </form>
+
+                <!-- Validate BVN if nill -->
+                <form action="" [formGroup]="bvnUpdateFormGroup" *ngIf="!bvnIsValid">
+                    <mat-form-field class="w-100">
+                        <mat-label>Enter BVN number</mat-label>
+                        <input matInput autocomplete="off" placeholder="Enter BVN number" formControlName="bvnId" minlength="11" maxlength="11">
+                        <mat-hint style="color: red;" *ngIf="!bvnIsSet">Valid BVN is required</mat-hint>
+                        <button style="width: 100%; text-transform: uppercase; color: #0396FD;" mat-button matSuffix (click)="onBVNChange()" [disabled]="bvnUpdateFormGroup.controls.bvnId.invalid || showBVNSpinner">
+                            Verify
+                        </button>
+                    </mat-form-field>
+
+                    <!-- BVN Spinner -->
+                    <section *ngIf="showBVNSpinner" style="text-align: center;">
+                        <mat-progress-bar class="example-margin" [color]="color" [mode]="mode" [value]="value" [bufferValue]="bufferValue">
+                        </mat-progress-bar>
+                        <small>BVN Validation in progress. Kindly wait</small>
+                    </section>
+
+                    <div class="w-100">
+                        <button style="background-color: rgba(3, 150, 253, 0.16) ; width: 100%; text-transform: uppercase;
+                    color: #0396FD; height: 50px;" mat-button matStepperPrevious>Back</button>
+                        <button mat-flat-button class="big-buttonStyles" [ngClass]="{'primary': class=='primary'}" [ngClass]="{'disabled': isAwaitingResponse || bvnUpdateFormGroup.invalid}" mat-button [disabled]="isAwaitingResponse || bvnUpdateFormGroup.invalid || !bvnIsSet"
+                            (click)="proceedBVNForm(stepper)">Next</button>
+                    </div>
+                </form>
+            </mat-step>
+
+            <!-- Continue Session -->
+            <mat-step [stepControl]="continueSessionForm">
+                <form style="padding-top: 0px !important;">
+                    <ng-template matStepLabel state="check">Continue Session</ng-template>
+                    <h3 class="docs-required">Do you have a previous session?</h3>
+                    <p>If yes, please enter your Ticket ID below and click 'Ok' to continue from where you stopped</p>
+                    <form action="" [formGroup]="continueSessionForm">
+                        <mat-form-field>
+                            <mat-label>Enter Ticket ID</mat-label>
+                            <input formControlName="caseId" matInput>
+                        </mat-form-field>
+                    </form>
+                    <!-- Spinner -->
+                    <section *ngIf="showSpinner">
+                        <mat-progress-bar class="example-margin" [color]="color" [mode]="mode" [value]="value" [bufferValue]="bufferValue">
+                        </mat-progress-bar>
+                    </section>
+                    <div>
+                        <button style="background-color: rgba(3, 150, 253, 0.16) ; width: 100%; text-transform: uppercase;
+                    color: #0396FD; height: 50px;" mat-button (click)="proceedWithoutSession(stepper)">Get
+                            Started</button>
+                        <button mat-flat-button class="big-buttonStyles" [ngClass]="{'primary': class=='primary'}" [ngClass]="{'disabled': isAwaitingResponse || !continueSessionForm.controls.caseId.value}" mat-button [disabled]="isAwaitingResponse || !continueSessionForm.controls.caseId.value"
+                            (click)="onYesClick(stepper)">
+                            Continue Session
+                        </button>
+                    </div>
+                </form>
+            </mat-step>
+
+            <!-- Account Type -->
+            <mat-step [stepControl]="dataToUpdateForm">
+                <form style="padding-top: 0px !important;" [formGroup]="dataToUpdateForm">
+                    <ng-template matStepLabel state="check">Account Type</ng-template>
+                    <h4>Please select an account type</h4>
+                    <mat-form-field class="w-100">
+                        <mat-label>What type of account do you want to update?</mat-label>
+
+                        <mat-select formControlName="accountType" class="select-dropdown" placeholder="Please select the account type">
+                            <mat-option (click)="onSelectAccountType(option)" *ngFor="let option of accountTypes" [value]="option">
+                                {{option}}
+                            </mat-option>
+                        </mat-select>
+
+                        <!-- <mat-select *ngIf="isBusinessAccount" formControlName="accountType" class="select-dropdown" placeholder="account type">
+                            <mat-option value='Business Account'>
+                                Business Account
+                            </mat-option>
+                        </mat-select> -->
+                    </mat-form-field>
+
+                    <div *ngIf="showDataToUpdate">
+                        <ng-template matStepLabel state="check">Select Data to Update</ng-template>
+                        <h4>Please select the data you want to update</h4>
+                        <mat-form-field class="w-100">
+                            <mat-label>What data do you want to update?</mat-label>
+
+                            <mat-select formControlName="selectOptions" class="select-dropdown" placeholder="Please select the data do you want to update" multiple>
+                                <mat-option (click)="onSelectDataToUpdate()" *ngFor="let option of dataToUpdate" [value]="option">
+                                    {{option}}
+                                </mat-option>
+                            </mat-select>
+                            <mat-hint *ngIf="showContactUpdateHint">Please note that an active debit card will be required to complete the request</mat-hint>
+                        </mat-form-field>
+                    </div>
+                    <div *ngIf="showTinDataToUpdate">
+                        <ng-template matStepLabel state="check">Select Data to Update</ng-template>
+                        <h4>Please select the data you want to update</h4>
+                        <mat-form-field class="w-100">
+                            <mat-label>What data do you want to update?</mat-label>
+
+                            <mat-select formControlName="selectOptions" class="select-dropdown" placeholder="Please select the data do you want to update" >
+                                <mat-option (click)="onSelectDataToUpdate()" *ngFor="let option of dataTinToUpdate" [value]="option">
+                                    {{option}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+
+                </form>
+                <!-- Spinner -->
+                <section *ngIf="showSpinner">
+                    <mat-progress-bar class="example-margin" [color]="color" [mode]="mode" [value]="value" [bufferValue]="bufferValue">
+                    </mat-progress-bar>
+                </section>
+
+                <div>
+                    <!-- <button style="background-color: rgba(3, 150, 253, 0.16) ; width: 100%; text-transform: uppercase;
+                color: #0396FD; height: 50px;" mat-button matStepperPrevious>Back</button> -->
+                    <button mat-flat-button class="big-buttonStyles" [ngClass]="{'primary': class=='primary'}" (click)="proceedAccountTypeStepper(stepper)" [ngClass]="{'disabled': isAwaitingResponse || dataToUpdateForm.invalid}" mat-button [disabled]="isAwaitingResponse || dataToUpdateForm.invalid">
+                        Save and Continue
+                    </button>
+                </div>
+            </mat-step>
+
+            <!-- Update Forms -->
+            <mat-step *ngIf="!isBusinessAccount" [stepControl]="updateFormGroup">
+                <form [formGroup]="updateFormGroup">
+                    <ng-template matStepLabel>Update Data</ng-template>
+                    <!-- Address Update -->
+                    <div *ngIf="showAddressUpdate">
+                        <h4>Address Update</h4>
+                        <div class="w-100">
+                            <!-- Utility Bill Upload -->
+                            <div>
+                                <div class="align-left upload-cont" style="padding: 13px !important; margin-top: 15px !important;">
+                                    <label for="file-upload" class="custom-file-upload" (click)="fileInput.click()">kindly upload your recent utility bill
+                                        <img class="downloadicon" src="./assets/images/upload2.png" width="20px"
+                                            height="15px"></label>
+                                    <input hidden accept="image/x-png,image/gif,image/jpeg,application/pdf" (change)="onFormControlChanged($event, 'Utility Bill')" #fileInput type="file" id="file">
+                                </div>
+                                <div class="selected-file" *ngIf="fileResult">
+                                    <label class="file-text" for="">
+                                        {{fileResult}}
+                                        <img style="margin-left: 10px;" src="./assets/images/Group773.png" height="15"
+                                            width="15">
+                                    </label>
+                                    <mat-icon class="cancel-icn" (click)="removeSelectedFile('Utility Bill')">cancel
+                                    </mat-icon>
+                                </div>
+
+                                <div>
+                                    <h6 style="background-color: rgba(17, 57, 152, 0.16); font-weight: lighter; padding:20px !important; font-size: medium;">
+                                        The valid file types to upload are images and pdf files
+                                    </h6>
+                                </div>
+                            </div>
+
+                            <div>
+                                <h6 style="background-color: rgba(17, 57, 152, 0.16); font-weight: lighter; padding:20px !important; font-size: medium;">
+                                    Kindly ensure that the proper address is captured to enable us conduct verification.
+                                </h6>
+                            </div>
+
+                            <mat-form-field appearance="fill" class="w-100">
+                                <mat-label>House number</mat-label>
+                                <input formControlName="houseNumber" matInput autocomplete="off" placeholder="Enter house number" type="text">
+                            </mat-form-field>
+                            <mat-form-field appearance="fill" class="w-100">
+                                <mat-label>Street name</mat-label>
+                                <input formControlName="streetName" matInput autocomplete="off" placeholder="Enter street name" type="text">
+                            </mat-form-field>
+                            <mat-form-field appearance="fill" class="w-100">
+                                <mat-label>City/Town</mat-label>
+                                <input formControlName="cityTown" matInput autocomplete="off" placeholder="Enter city/town" type="text">
+                            </mat-form-field>
+                            <mat-form-field class="w-100">
+                                <mat-label>Please select the state</mat-label>
+                                <mat-select formControlName="state" class="select-dropdown" placeholder="Please select the state">
+                                    <mat-option (click)="onSelectState(option)" *ngFor="let option of stateLis" [value]="option">
+                                        {{option}}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                            <mat-form-field appearance="fill" class="w-100">
+                                <mat-label>Please select the local government area</mat-label>
+                                <mat-select formControlName="lga" class="select-dropdown" placeholder="Please select the local government area">
+                                    <mat-option *ngFor="let option of lgas" [value]="option">
+                                        {{option}}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                            <mat-form-field appearance="fill" class="w-100">
+                                <mat-label>Nearest bus stop/ Landmark </mat-label>
+                                <input formControlName="busStop" matInput autocomplete="off" placeholder="Enter nearest bus stop " type="text">
+                            </mat-form-field>
+                            <mat-form-field appearance="fill" class="w-100">
+                                <mat-label>Alias (nickname) </mat-label>
+                                <input formControlName="alias" matInput autocomplete="off" placeholder="Enter alias (nickname) " type="text">
+                            </mat-form-field>
+                            <mat-form-field appearance="fill" class="w-100">
+                                <mat-label>Brief description of house (colour of building, type of building, gate colour, etc)</mat-label>
+                                <input formControlName="houseDesc" matInput autocomplete="off" (change)="checkValidity()" placeholder="Enter brief description of house" type="text" required>
+                            </mat-form-field>
+                        </div>
+                        <br><br>
+                    </div>
+                    <!-- Phone Number and Email Update -->
+                    <div *ngIf="showContactUpdate">
+
+                        <h4>Phone Number / Email Update. (kindly fill out the necessary data in the field(s) you want to update). Please be informed that any information entered here will be used to replace existing data in our records.
+                        </h4>
+
+                        <div>
+                            <mat-form-field appearance="fill">
+                                <mat-label>Country Code</mat-label>
+                                <mat-select formControlName="countryCode" class="select-dropdown" placeholder="Please select the country code">
+                                    <mat-option (click)="onSelectState(option)" *ngFor="let option of countryCodes" [value]="option.COUNTRY_CODE">
+                                        +{{option.COUNTRY_CODE}} {{option.COUNTRY}}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+
+                            <mat-form-field appearance="fill">
+                                <mat-label>Phone Number</mat-label>
+                                <input matInput autocomplete="off" maxlength="15" placeholder="Enter Phone Number" formControlName="phoneNoCtrl" type="tel">
+                            </mat-form-field>
+                        </div>
+                        <div class="w-100">
+                            <mat-form-field appearance="fill" class="w-100">
+                                <mat-label>Email Address</mat-label>
+                                <input matInput placeholder="Enter email" formControlName="email" (change)="checkValidity()" type="email">
+                                <mat-error *ngIf="updateFormGroup.get('email').hasError('required')">
+                                    Email is required </mat-error>
+                                <mat-error *ngIf="updateFormGroup.get('email').hasError('pattern')">
+                                    Only valid emails are allowed </mat-error>
+
+                            </mat-form-field>
+                        </div>
+                        <br><br>
+                    </div>
+                    <!-- ID Update -->
+                    <div *ngIf="showIdUpdate">
+
+                        <!-- Upload ID card -->
+
+                        <h4>
+                            Kindly upload a means of identification
+                        </h4>
+
+                        <div class="align-left upload-cont" style="padding: 13px !important; margin-top: 15px !important;">
+
+                            <label for="file-upload" class="custom-file-upload" (click)="idFileInput.click()">Means of
+                                ID
+                                (Click to upload multiple documents)
+                                <img class="downloadicon" src="./assets/images/upload2.png" width="20px"
+                                    height="15px"></label>
+                            <input hidden accept="image/x-png,image/gif,image/jpeg,application/pdf" (change)="onFormControlChanged($event, 'Identification Card')" #idFileInput type="file" formContolName="identificationCard" id="idFileInput">
+
+                            <button style="width: 100%; text-transform: uppercase; color: #0396FD;" mat-button matSuffix (click)="idFileInput.click()" *ngIf="meansOfIdentificationFileNames.length > 0">
+                                Add
+                            </button>
+
+                        </div>
+
+                        <div *ngIf="meansOfIdentificationFileNames.length > 0" class="selected-file">
+                            <div *ngFor="let item of meansOfIdentificationFileNames; let i=index">
+                                <label class="file-text" for="">
+                                    {{item}}
+                                    <img style="margin-left: 10px;" src="./assets/images/Group773.png" height="15"
+                                        width="15">
+                                </label>
+                                <mat-icon class="cancel-icn" (click)="removeSelectedFile('Identification Card', i)">
+                                    cancel
+                                </mat-icon>
+                            </div>
+                        </div>
+
+                        <h4>Please select an identification type</h4>
+                        <mat-form-field class="w-100">
+                            <mat-label>Select type of ID</mat-label>
+
+                            <mat-select formControlName="idTypeCtrl" class="select-dropdown" placeholder="Please select the ID type">
+                                <mat-option (click)="onSelectIdType(option)" *ngFor="let option of idTypes" [value]="option">
+                                    {{option}}
+                                </mat-option>
+                            </mat-select>
+                            <mat-hint *ngIf="showOtherIdHint">Please attach your valid work / residence permit in addition to your ID card
+                            </mat-hint>
+                        </mat-form-field>
+
+                        <mat-form-field class="w-100" *ngIf="!showOtherIdHint">
+                            <mat-label *ngIf="!showNinInfo">Enter the ID number</mat-label>
+                            <mat-label *ngIf="showNinInfo">Enter your National Identity Number (NIN)</mat-label>
+
+                            <input matInput autocomplete="off" placeholder="Enter the ID number" formControlName="idNumber" type="text">
+                            <mat-hint align="end" style="color: red;" *ngIf="!idIsValid">Valid ID number is required
+                            </mat-hint>
+                            <mat-hint *ngIf="showNinInfo">Forgotten your NIN? Dial *346# to retrieve your National Identification Number</mat-hint>
+                            <button style="width: 100%; text-transform: uppercase; color: #0396FD;" mat-button matSuffix (click)="onIdNumberKeyUp()" [disabled]="!updateFormGroup.controls.idNumber.value || showIdSpinner">
+                                Verify
+                            </button>
+
+                        </mat-form-field>
+
+                        <!-- ID Validation Spinner -->
+                        <section *ngIf="showIdSpinner">
+                            <mat-progress-bar class="example-margin" [color]="color" [mode]="mode" [value]="value" [bufferValue]="bufferValue">
+                            </mat-progress-bar>
+                        </section>
+                    </div>
+
+                    <div *ngIf="showTinUpdate">
+
+                        <!-- Upload ID card -->
+
+                        <h4>
+                            Kindly provide your Tin number
+                        </h4>
+
+                       
+
+
+
+                        <mat-form-field class="w-100" >
+
+                            <input matInput autocomplete="off" placeholder="Enter your TIN number" formControlName="tinCtrl" type="text">
+                            <mat-hint align="end" style="color: red;" *ngIf="!isTinValid">Valid Tin number is required
+                            </mat-hint>
+                            <!-- <button style="width: 100%; text-transform: uppercase; color: #0396FD;" mat-button matSuffix (click)="ValidateTinNumber()" [disabled]="!updateFormGroup.controls.tinCtrl.value || showIdSpinner">
+                                Verify
+                            </button> -->
+                            <a href="https://apps.firs.gov.ng/tinverification/Default" target="_blank" style="width: 100%; text-transform: uppercase; color: #0396FD;" mat-button matSuffix 
+                            [disabled]="!updateFormGroup.controls.tinCtrl.value || showIdSpinner">
+                                Confirm Tin number
+                            </a>
+
+                        </mat-form-field>
+
+                        <!-- ID Validation Spinner -->
+                        <section *ngIf="showIdSpinner">
+                            <mat-progress-bar class="example-margin" [color]="color" [mode]="mode" [value]="value" [bufferValue]="bufferValue">
+                            </mat-progress-bar>
+                        </section>
+                    </div>
+                    <!-- Spinner -->
+                    <section *ngIf="showSpinner">
+                        <mat-progress-bar class="example-margin" [color]="color" [mode]="mode" [value]="value" [bufferValue]="bufferValue">
+                        </mat-progress-bar>
+                    </section>
+
+                    <div class="w-100">
+                        <button style="background-color: rgba(3, 150, 253, 0.16) ; width: 100%; text-transform: uppercase;
+                                color: #0396FD; height: 50px;" (click)="backtoSelectType(updateFormGroup, stepper)" mat-button >Back</button>
+                        <button mat-flat-button class="big-buttonStyles" [ngClass]="{'primary': class=='primary'}" (click)="proceedDataFormStepper(stepper)" [ngClass]="{'disabled': isAwaitingResponse || updateFormGroup.invalid || !idIsValid || (showContactUpdate && !updateFormGroup.controls.email.value && !updateFormGroup.controls.phoneNoCtrl.value) || (showAddressUpdate && !fileResult) || (showIdUpdate && meansOfIdentificationFileNames.length < 1)}"
+                            mat-button [disabled]="isAwaitingResponse || updateFormGroup.invalid || !idIsValid|| !isTinValid || (showContactUpdate && !updateFormGroup.controls.email.value  && !updateFormGroup.controls.phoneNoCtrl.value) || (showAddressUpdate && !fileResult) || (showIdUpdate && meansOfIdentificationFileNames.length < 1)">
+                            Authenticate</button>
+                    </div>
+
+                </form>
+
+            </mat-step>
+            <mat-step *ngIf="isBusinessAccount" [stepControl]="updateFormGroup">
+                <form [formGroup]="updateFormGroup">
+                    <ng-template matStepLabel>Update Data</ng-template>
+                   
+
+                    <div *ngIf="showTinUpdate">
+
+                        <!-- Upload ID card -->
+
+                        <h4>
+                            Kindly provide your Tin number
+                        </h4>
+
+                       
+
+
+
+                        <mat-form-field class="w-100" >
+
+                            <input matInput autocomplete="off" placeholder="Enter your TIN number" formControlName="tinCtrl" type="text">
+                            <mat-hint align="end" style="color: red;" *ngIf="!isTinValid">Valid Tin number is required
+                            </mat-hint>
+                            <!-- <button style="width: 100%; text-transform: uppercase; color: #0396FD;" mat-button matSuffix (click)="ValidateTinNumber()" [disabled]="!updateFormGroup.controls.tinCtrl.value || showIdSpinner">
+                                Verify
+                            </button> -->
+                            
+                                <a href="https://apps.firs.gov.ng/tinverification/Default" target="_blank" style="width: 100%; text-transform: uppercase; color: #0396FD;" mat-button matSuffix 
+                                [disabled]="!updateFormGroup.controls.tinCtrl.value || showIdSpinner">
+                                    Confirm Tin number
+                                </a>
+                            
+
+                        </mat-form-field>
+                        <br>
+                        <div *ngIf="updateFormGroup.controls.tinCtrl.value">
+                        <mat-checkbox (change)="setAll($event.checked)"> 
+                            <span style="white-space: pre-line;"> By checking this box, you confirm that your TIN is correct and should be uploaded on your account. </span></mat-checkbox>
+                        </div>
+                        <!-- ID Validation Spinner -->
+                        <section *ngIf="showIdSpinner">
+                            <mat-progress-bar class="example-margin" [color]="color" [mode]="mode" [value]="value" [bufferValue]="bufferValue">
+                            </mat-progress-bar>
+                        </section>
+                    </div>
+                    <!-- Spinner -->
+                    <section *ngIf="showSpinner">
+                        <mat-progress-bar class="example-margin" [color]="color" [mode]="mode" [value]="value" [bufferValue]="bufferValue">
+                        </mat-progress-bar>
+                    </section>
+
+                    <div class="w-100">
+                        <button style="background-color: rgba(3, 150, 253, 0.16) ; width: 100%; text-transform: uppercase;
+                                color: #0396FD; height: 50px;" (click)="backtoSelectType(updateFormGroup, stepper)" mat-button >Back</button>
+                        <button mat-flat-button class="big-buttonStyles" [ngClass]="{'primary': class=='primary'}" (click)="proceedDataFormStepper(stepper)" [ngClass]="{'disabled': isAwaitingResponse || updateFormGroup.invalid || !idIsValid ||!isTinValid|| (showContactUpdate && !updateFormGroup.controls.email.value && !updateFormGroup.controls.phoneNoCtrl.value) || (showAddressUpdate && !fileResult) || (showIdUpdate && meansOfIdentificationFileNames.length < 1)}"
+                            mat-button [disabled]="isAwaitingResponse || updateFormGroup.invalid || !idIsValid|| !isTinValid || (showContactUpdate && !updateFormGroup.controls.email.value  && !updateFormGroup.controls.phoneNoCtrl.value) || (showAddressUpdate && !fileResult) || (showIdUpdate && meansOfIdentificationFileNames.length < 1)">
+                            Authenticate</button>
+                    </div>
+
+                </form>
+
+            </mat-step>
+
+            <!-- Authentication -->
+            <!-- <mat-step *ngIf="!isBusinessAccount" [stepControl]="cardFormGroup">
+                <form [formGroup]="cardFormGroup">
+                    <ng-template matStepLabel>Authenticate</ng-template>
+
+                    <div> -->
+            <!-- <label id="example-radio-group-label" class="example-radio-group-label">Do you have a debit
+                            card?</label>
+                        <mat-radio-group aria-label="example-radio-group-label" formControlName="debitCardOption">
+                            <mat-radio-button class="example-radio-button" *ngFor="let cardOption of cardOptions" (click)="onSelectDebitCard(cardOption)" [value]="cardOption">
+                                {{cardOption}}
+                            </mat-radio-button>
+                        </mat-radio-group> -->
+
+            <!-- <section *ngIf="showSpinner">
+                            <mat-progress-bar class="example-margin" [color]="color" [mode]="mode" [value]="value" [bufferValue]="bufferValue">
+                            </mat-progress-bar>
+                        </section>
+                        <button style="background-color: rgba(3, 150, 253, 0.16) ; width: 100%; text-transform: uppercase;
+                    color: #0396FD; height: 50px;" mat-button matStepperPrevious>Back</button>
+
+                        <button mat-flat-button class="big-buttonStyles btn-cont" [ngClass]="{'primary': class=='primary'}" (click)="initiateOTP(stepper)">
+                            Authenticate
+                        </button>
+                    </div>
+                </form> -->
+
+            <!-- Signature -->
+            <!-- <form *ngIf="authWithSignature">
+                    <div>
+                        <ng-template matStepLabel matStepperIcon="phone">Upload signature</ng-template>
+
+                        <h4>Please upload a signature</h4>
+                        <div class="align-left upload-cont" style="padding: 13px !important;">
+                            <label for="file-upload" class="custom-file-upload" (click)="fileInputCtrl.click()">Choose
+                                File
+                            </label>
+
+                            <input hidden accept="image/x-png,image/gif,image/jpeg"
+                                (change)="onSignatureFileSelected($event)" #fileInputCtrl type="file" id="file">
+                        </div>
+                        <div *ngIf="selectedSignaturefile" class="selected-file">
+                            <label class="file-text" for="">
+                                {{selectedSignaturefile}}
+                                <img style="    margin-left: 10px;
+                    " src="./assets/images/Group773.png" height="15" width="15">
+
+                            </label>
+
+                            <mat-icon class="cancel-icn" (click)="removeSelectedFile('Signature')">cancel</mat-icon>
+                        </div>
+                        <div class="fileError-cls">
+                            {{referenceFormError}}
+                        </div>
+
+                        <h5
+                            style="background-color: rgba(17, 57, 152, 0.16); font-weight: lighter; padding:20px !important; font-size: medium;">
+                            <div style="text-align: left !important;">
+                                Please note that you are required to upload a signature on a plain piece of white paper
+                                <br>
+                                <b>Note:</b>You are required to upload as an image
+                            </div>
+                        </h5>
+
+                    </div>
+
+                    <button style="background-color: rgba(3, 150, 253, 0.16) ; width: 100%; text-transform: uppercase;
+                    color: #0396FD; height: 50px;" mat-button matStepperPrevious>Back</button>
+                    <button mat-flat-button class="big-buttonStyles btn-cont" [ngClass]="{'primary': class=='primary'}"
+                        (click)="initiateOTP(stepper)">
+                        Request OTP
+                    </button>
+                </form> -->
+            <!-- </mat-step> -->
+
+            <!-- Upload Document for CORPORATE/BUSINESS ACCOUNT -->
+            <mat-step *ngIf="isBusinessAccount">
+                <form [formGroup]="DocumentsFormGroup">
+                    <ng-template matStepLabel matStepperIcon="phone">Upload Instruction</ng-template>
+
+                    <h4>Please upload an instruction</h4>
+
+                    <div>
+                        <h6 style="background-color: rgba(17, 57, 152, 0.16); font-weight: lighter; padding:20px !important; font-size: medium;">
+                            Instruction should be in company’s letter head and signed off by all signatories as specified by the mandate on the account.
+                        </h6>
+                    </div>
+
+                    <section *ngIf="showSpinner">
+                        <mat-progress-bar class="example-margin" [color]="color" [mode]="mode" [value]="value" [bufferValue]="bufferValue">
+                        </mat-progress-bar>
+                    </section>
+                    <div class="align-left upload-cont" style="padding: 13px !important; margin-bottom: 20px !important;">
+                        <label for=" " class="custom-file-upload" (click)="IntroLetter.click()">Instruction on
+                            letterhead / Board resolution
+                            <img class="downloadicon" src="./assets/images/upload2.png" width="20px"
+                                height="15px"></label>
+                        <input hidden accept="image/x-png,image/gif,image/jpeg,application/pdf" (click)="onFormControlClicked($event)" required (change)="onFormControlChanged($event,'IntroLetter')" #IntroLetter type="file" id="file">
+                    </div>
+
+                    <!-- Remove Instruction -->
+                    <div>
+                        <div *ngIf="IntroLetterFileName" class="selected-file">
+                            <label class="file-text" for="">
+                                {{IntroLetterFileName}}
+                                <img style="margin-left: 10px;" src="./assets/images/Group773.png" height="15"
+                                    width="15">
+                            </label>
+                            <mat-icon class="cancel-icn" (click)="removeSelectedFile('IntroLetter')">cancel</mat-icon>
+                        </div>
+                        <div class="fileError-cls">
+                            {{introLetterError}}
+                        </div>
+                    </div>
+
+                    <!-- T&C -->
+                    <section class="example-section">
+                        <mat-checkbox formControlName="TermsAndConditions" class="example-margin" [checked]="iAgree" (change)="onClickAgree($event.checked)">I Have Read And Accepted The <a href="./assets/templates/Business Account Terms and Conditions.pdf" target="blank" style="color: #113998;" required>Terms and Conditons</a>
+                        </mat-checkbox>
+                    </section>
+
+                    <button style="background-color: rgba(3, 150, 253, 0.16) ; width: 100%; text-transform: uppercase;
+                    color: #0396FD; height: 50px;" mat-button matStepperPrevious>Back</button>
+                    <button style=" color: #FFFFFF ;cursor:pointer;
+                    background-color: #113998; height: 50px; width:100%; text-transform: uppercase;" mat-button (click)="onSubmitDocumentsFormGroup(stepper)" [ngClass]="{'disabled': DocumentsFormGroup.invalid || !iAgree || !IntroLetterFileName}" [disabled]="DocumentsFormGroup.invalid || !iAgree || !IntroLetterFileName">
+                        Request OTP</button>
+                </form>
+            </mat-step>
+
+            <!-- Verify OTP -->
+            <mat-step class="align-left" *ngIf="authWithSignature">
+                <ng-template matStepLabel>Verify OTP</ng-template>
+                <form [formGroup]="otpForm">
+                    <section *ngIf="showSpinner">
+                        <mat-progress-bar class="example-margin" [color]="color" [mode]="mode" [value]="value" [bufferValue]="bufferValue">
+                        </mat-progress-bar>
+                    </section>
+                    <div class="">
+                        <h4>Please provide the OTP sent to your registered phone number</h4>
+
+                        <mat-form-field appearance="fill" class="w-100">
+                            <mat-label>Enter OTP</mat-label>
+                            <input matInput autocomplete="off" type="password" placeholder="Enter the verification otp" formControlName="otpControl" minlength="5" maxlength="5" required>
+                            <mat-hint align="end" class="cursor" style="color: #1428C4;" (click)="resendOTP()">Resend OTP
+                            </mat-hint>
+                        </mat-form-field>
+                    </div>
+                    <button style="background-color: rgba(3, 150, 253, 0.16) ; width: 100%; text-transform: uppercase;
+                    color: #0396FD; height: 50px;" mat-button matStepperPrevious>Back</button>
+                    <button mat-flat-button class="big-buttonStyles" [ngClass]="{'primary': class=='primary'}" [disabled]="isAwaitingResponse || !otpForm.valid" (click)="submitRequest(stepper)">Submit</button>
+                </form>
+            </mat-step>
+
+            <!-- Done -->
+            <mat-step>
+                <form>
+                    <ng-template matStepLabel state="check">Done</ng-template>
+
+                    <h5 style="background-color: rgba(100, 231, 152, 0.16);text-align: center; font-weight: lighter; padding:20px !important; font-size: medium;">
+                        <div style="text-align: center !important;">
+                            <img src="./assets/images/Group773.png" height="64" width="64">
+
+                        </div>
+                        Your Data Update request has been successfully submitted with Ticket ID <br>
+                        <b> {{ticketID}}.</b> <br> Please keep this ID safe for future reference. For further enquiries, contact the Customer Contact Centre on 0700 909 909 909 or CustomerCareNigeria@stanbicibtc.com”
+                    </h5>
+                </form>
+            </mat-step>
+
+            <ng-template matStepperIcon="check">
+                <mat-icon style="background: #0033A1;">check_circle</mat-icon>
+            </ng-template>
+
+        </mat-horizontal-stepper>
+    </div>
+</div>
+
+<ng-template #iFrameModalTemplate>
+    <iframe style="height: 100%; border: none;" id="quickServiceIFrame" src="" class="col-md-12"></iframe>
+</ng-template>

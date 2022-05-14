@@ -1,0 +1,17 @@
+<h2 mat-dialog-title>Continue Previous Sesson</h2>
+<div mat-dialog-content>
+    <p>Do you have a previous session?</p>
+    <p>If yes, please enter your Ticket ID below and click 'Ok' to continue from where you stopped</p>
+    <form action="" [formGroup]="continueSessionForm">
+        <mat-form-field>
+            <mat-label>Enter Ticket ID</mat-label>
+            <!-- <input matInput [(ngModel)]="data.animal"> -->
+            <input formControlName="caseId" matInput required>
+        </mat-form-field>
+    </form>
+</div>
+<mat-dialog-actions align="end">
+    <button mat-button (click)="onNoClick()">No Thanks</button>
+    <button mat-button (click)="onYesClick()"
+        [disabled]="!continueSessionForm.valid">Ok</button>
+</mat-dialog-actions>

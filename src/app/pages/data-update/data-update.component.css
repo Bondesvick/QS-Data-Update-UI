@@ -1,0 +1,245 @@
+::ng-deep .mat-horizontal-stepper-header {
+    pointer-events: none !important;
+}
+
+h3 {
+    display: block;
+    font-size: 1.17em;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+
+h1 {
+    display: block;
+    font-size: 2em;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+
+ul {
+    list-style-image: url('../../../assets/images/checkmark.png');
+}
+
+.ul-class-cont {
+    /* margin-right: 56px;
+      margin-top: 20px; */
+    padding-left: 0.5rem;
+    height: 100%;
+    display: inline-block;
+}
+
+ ::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex {
+    background-color: #fff !important;
+}
+
+.mat-stepper-horizontal {
+    background: none !important;
+}
+
+.mat-form-field {
+    margin: 8px;
+}
+
+::ng-deep .mat-horizontal-content-container {
+    /* overflow: hidden; */
+    padding: 0px 24px 24px 24px;
+}
+
+.mat-stepper-horizontal {
+    background: none !important;
+}
+
+.example-radio-group {
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0;
+}
+
+.example-radio-group-label {
+    display: flex;
+    margin: 20px 0;
+}
+
+mat-radio-button {
+    padding-bottom: 15px;
+}
+
+
+/* ::ng-deep.mat-form-field {
+    display: block !important;
+} */
+
+::ng-deep .mat-form-field-appearance-legacy .mat-form-field-underline {
+    background: #ddd !important;
+}
+
+mat-select {
+    margin: 8px;
+}
+
+button {
+    margin: 8px;
+}
+
+h4 {
+    margin-left: 8px;
+}
+
+::ng-deep .mat-step-label {
+    display: inline-block;
+    white-space: pre-wrap !important;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-width: 80px !important;
+    vertical-align: middle;
+}
+
+.disabled {
+    background-color: rgba(0, 0, 0, 0.12) !important;
+}
+
+.disabled:hover {
+    cursor: not-allowed;
+}
+
+.document {
+    width: 100%;
+    margin-bottom: 20px;
+    /* height: 30px; */
+}
+
+.document-cont {
+    width: 100%;
+    margin-bottom: 20px;
+    height: 30px;
+}
+
+.document2 {
+    width: 100%;
+    height: 30px;
+}
+
+.errorSnackbar {
+    background: rgba(255, 10, 68, 0.08) !important;
+    color: black !important;
+}
+
+.successSnackbar {
+    background: rgba(0, 238, 195, 0.16) !important;
+    color: black !important;
+}
+
+.downloadicon {
+    padding-right: 5px !important;
+}
+
+.selected-file {
+    margin-top: 2rem;
+    /* width: 562px; */
+    height: 64px;
+    margin-bottom: 2rem;
+    /* left: 679px; */
+    /* top: 807px; */
+    display: flex;
+    justify-content: space-between;
+    background: #fff;
+}
+
+::ng-deep .mat-stepper-label-position-bottom .mat-horizontal-stepper-header-container {
+    margin-bottom: 5px;
+}
+
+.file-text {
+    /* line-height: 64px; */
+    padding: 1.5rem;
+    font-size: 13px;
+}
+
+.cancel-icn {
+    display: inline-block;
+    /* float: right; */
+    line-height: 48px;
+    /* padding: 0.5rem; */
+}
+
+label.custom-file-upload {
+    font-size: 14px !important;
+    padding: 5px 9px 9px 12px !important;
+    display: inline-block;
+    cursor: pointer;
+    background-color: #e5e5e5;
+    color: rgba(0, 0, 0, 0.64);
+    border-radius: 500px;
+    font-size: 14px;
+}
+
+.custom-file-upload {
+    letter-spacing: .5px;
+    display: inline-block;
+    padding: 5px 9px 5px 12px;
+    cursor: pointer;
+    background-color: #e5e5e5;
+    color: rgba(0, 0, 0, 0.64);
+    border-radius: 500px;
+}
+
+.upload {
+    text-align: left !important;
+}
+
+a {
+    margin-right: 0px;
+}
+
+img {
+    margin-right: 0px !important;
+}
+
+#back-button {
+    display: block;
+}
+
+.back-button:focus {
+    outline: none;
+    border: none;
+}
+
+a .back-button label {
+    color: black;
+}
+
+.mat-button-wrapper {
+    font-weight: 400;
+}
+
+.li-subtitle-disabled {
+    font-size: 16px !important;
+}
+
+.li-subcontent-disabled {
+    font-size: 13px !important;
+}
+
+.fileError-cls {
+    margin: 15px;
+    color: red;
+    text-align: center;
+}
+
+.mat-tab-labels {
+    justify-content: center;
+}
+
+.mat-radio-button~.mat-radio-button {
+    margin-left: 16px;
+}
+
+.mat-step-label {
+    font-size: xx-small;
+}

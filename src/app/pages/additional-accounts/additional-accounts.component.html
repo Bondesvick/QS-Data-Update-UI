@@ -1,0 +1,1108 @@
+<!-- Left Column (Progress Bar) -->
+<div class="column col-desc">
+    <!-- <a id="back-button" class="cursor" [routerLink]="[ '/home']"
+        style="padding-left: 20px;padding-top: 5px !important;"><img width="20" style="margin-right: 15px !important;"
+            class="back-img" height="20" src="../assets/images/back (2).svg" alt="">
+        <label style="color: black;" for="">Go back</label> </a> -->
+
+    <div style="width: 60%;margin: 0 auto;text-align: left;">
+
+        <h1 style="font-size: 24px; padding-top:0px;padding-bottom: 15px;padding-left: 12px;">Additional Account Opening
+        </h1>
+
+        <!-- Progress side bar -->
+        <div class="ul-class-cont">
+
+            <!-- Documents -->
+            <div>
+                <div class="active-bg-icon" style="float: left;">
+                    <img [src]="isRequiredDocStepperActive ? './assets/images/Group774.png': './assets/images/Group773.png'" height="20" width="20">
+                    <p class="li-icon-seperator" style="height: 60px !important;"></p>
+                </div>
+                <div class="li-content" style="padding-bottom: 8px;">
+                    <p class="li-subtitle-disabled">Documents</p>
+                    <p class="li-subcontent-disabled"> A list of all the documents you will need to upload in order to process your additional account opening. It also contains the link to download the corporate account opening forms</p>
+                </div>
+            </div>
+
+            <!-- Additional Account Type -->
+            <div>
+                <div class="active-bg-icon" style="float: left;">
+                    <img *ngIf="!isAccountTypeStepperActive && !isAccountTypeStepperDone" src="./assets/images/Group775.png" height="20" width="20">
+                    <img *ngIf="isAccountTypeStepperActive && !isAccountTypeStepperDone" src="./assets/images/Group774.png" height="20" width="20">
+                    <img *ngIf="!isAccountTypeStepperActive && isAccountTypeStepperDone" src="./assets/images/Group773.png" height="20" width="20">
+                    <p class="li-icon-seperator" style="height: 50px !important;"></p>
+                </div>
+
+                <div class="li-content">
+
+                    <p class="li-subtitle-disabled" [ngClass]="{'disabled-text': !isAccountTypeStepperActive && !isAccountTypeStepperDone}">Account Type
+                    </p>
+                    <p class="li-subcontent-disabled" [ngClass]="{'disabled-text': !isAccountTypeStepperActive && !isAccountTypeStepperDone}">
+                        Please select an account type between <b>savings</b> and <b>current</b>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Account Validation -->
+            <div>
+                <div class="active-bg-icon" style="float: left;">
+                    <img *ngIf="!isAccountStepperActive && !isAccountStepperDone" src="./assets/images/Group775.png" height="20" width="20">
+                    <img *ngIf="isAccountStepperActive && !isAccountStepperDone" src="./assets/images/Group774.png" height="20" width="20">
+                    <img *ngIf="!isAccountStepperActive && isAccountStepperDone" src="./assets/images/Group773.png" height="20" width="20">
+                    <p class="li-icon-seperator" style="height: 40px !important;"></p>
+                </div>
+                <div class="li-content">
+                    <p class="li-subtitle-disabled" [ngClass]="{'disabled-text': !isAccountStepperActive && !isAccountStepperDone}">Account Validation
+                    </p>
+                    <p class="li-subcontent-disabled" [ngClass]="{'disabled-text': !isAccountStepperActive && !isAccountStepperDone}"> Provide your correct account number and phone number to validate your account
+                    </p>
+                </div>
+            </div>
+
+            <!-- Identification, Empoyment Status and Occupation -->
+            <div *ngIf="!showCorporateAcctTab">
+                <div class="active-bg-icon" style="float: left;">
+                    <img *ngIf="!isEmploymentStatusStepperActive && !isEmploymentStatusStepperDone" src="./assets/images/Group775.png" height="20" width="20">
+                    <img *ngIf="isEmploymentStatusStepperActive && !isEmploymentStatusStepperDone" src="./assets/images/Group774.png" height="20" width="20">
+                    <img *ngIf="!isEmploymentStatusStepperActive && isEmploymentStatusStepperDone" src="./assets/images/Group773.png" height="20" width="20">
+                    <p class="li-icon-seperator" style="height: 50px !important;"></p>
+                </div>
+
+                <div class="li-content">
+
+                    <p class="li-subtitle-disabled" [ngClass]="{'disabled-text': !isEmploymentStatusStepperActive && !isEmploymentStatusStepperDone}">
+                        Identification, Empoyment Status and Occupation
+                    </p>
+                    <p class="li-subcontent-disabled" [ngClass]="{'disabled-text': !isEmploymentStatusStepperActive && !isEmploymentStatusStepperDone}">
+                        Please provide employment status and occupationa <br>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Referee Section -->
+            <div *ngIf="!showCorporateAcctTab">
+                <div class="active-bg-icon" style="float: left;">
+                    <img *ngIf="!isRefereeInformationStepperActive && !isRefereeInformationStepperDone" src="./assets/images/Group775.png" height="20" width="20">
+                    <img *ngIf="isRefereeInformationStepperActive && !isRefereeInformationStepperDone" src="./assets/images/Group774.png" height="20" width="20">
+                    <img *ngIf="!isRefereeInformationStepperActive && isRefereeInformationStepperDone" src="./assets/images/Group773.png" height="20" width="20">
+                    <p class="li-icon-seperator" style="height: 50px !important;"></p>
+                </div>
+
+                <div class="li-content">
+
+                    <p class="li-subtitle-disabled" [ngClass]="{'disabled-text': !isRefereeInformationStepperActive && !isRefereeInformationStepperDone}">
+                        Debit Card and Referee Information
+                    </p>
+                    <p class="li-subcontent-disabled" [ngClass]="{'disabled-text': !isRefereeInformationStepperActive && !isRefereeInformationStepperDone}">
+                        Please provide your references <br> You will need to provide one referee that is a staff of Stanbic IBTC Bank and download and fill the form for the other referee
+                    </p>
+                </div>
+            </div>
+
+            <!-- Upload Required Documents & Verify - CORPORATE/BUSINESS ACCOUNT -->
+            <div *ngIf="showCorporateAcctTab">
+                <div class="active-bg-icon" style="float: left;">
+                    <img *ngIf="!isUploadCorporateFormDocActive && !isUploadCorporateFormDone" src="./assets/images/Group775.png" height="20" width="20">
+                    <img *ngIf="isUploadCorporateFormDocActive && !isUploadCorporateFormDone" src="./assets/images/Group774.png" height="20" width="20">
+                    <img *ngIf="!isUploadCorporateFormDocActive && isUploadCorporateFormDone" src="./assets/images/Group773.png" height="20" width="20">
+                </div>
+                <div class="li-content">
+                    <p class="li-subtitle-disabled" [ngClass]="{'disabled-text': !isUploadCorporateFormDocActive && !isUploadCorporateFormDone}">
+                        Upload Required Documents & Verify
+                    </p>
+                    <p class="li-subcontent-disabled" [ngClass]="{'disabled-text': !isUploadCorporateFormDocActive && !isUploadCorporateFormDone}">
+                        Upload the required documents to open a corporate account in PDF or JPEG format up to 2MB and enter the verification pin sent to the registered phone number
+                    </p>
+                </div>
+
+            </div>
+
+            <!-- Upload Signature & Verify -->
+            <div *ngIf="!showCorporateAcctTab">
+                <div class="active-bg-icon" style="float: left;">
+                    <img *ngIf="!isUploadSignatureFormActive && !isUploadSignatureFormDone" src="./assets/images/Group775.png" height="20" width="20">
+                    <img *ngIf="isUploadSignatureFormActive && !isUploadSignatureFormDone" src="./assets/images/Group774.png" height="20" width="20">
+                    <img *ngIf="!isUploadSignatureFormActive && isUploadSignatureFormDone" src="./assets/images/Group773.png" height="20" width="20">
+
+                </div>
+                <div class="li-content">
+                    <p class="li-subtitle-disabled" [ngClass]="{'disabled-text': !isUploadSignatureFormActive && !isUploadSignatureFormDone}">
+                        Upload Signature & Verify
+                    </p>
+                    <p class="li-subcontent-disabled" [ngClass]="{'disabled-text': !isUploadSignatureFormActive && !isUploadSignatureFormDone}">
+                        Upload your signature in PDF or JPEG format up to 2MB and enter the verification pin sent to the registered phone number
+                    </p>
+                </div>
+            </div>
+
+            <!-- Authentication -->
+            <div *ngIf="!showCorporateAcctTab">
+                <div class="active-bg-icon" style="float: left;">
+                    <img *ngIf="!isAuthenticationFormActive && !isAuthenticationFormDone" src="./assets/images/Group775.png" height="20" width="20">
+                    <img *ngIf="isAuthenticationFormActive && !isAuthenticationFormDone" src="./assets/images/Group774.png" height="20" width="20">
+                    <img *ngIf="!isAuthenticationFormActive && isAuthenticationFormDone" src="./assets/images/Group773.png" height="20" width="20">
+
+                    <p class="li-icon-seperator" style="height: 60px !important;"></p>
+                </div>
+                <div class="li-content">
+                    <p class="li-subtitle-disabled" [ngClass]="{'disabled-text': !isAuthenticationFormActive && !isAuthenticationFormDone}">
+                        Authentication
+                    </p>
+                    <p class="li-subcontent-disabled" [ngClass]="{'disabled-text': !isAuthenticationFormActive && !isAuthenticationFormDone}">
+                        Authentication is required, either by debit card or without. If you have a debit card you would be required to validate request using your card details, else you would be required to upload your signature and input an OTP sent to your registered phone
+                        number
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+<!-- ==================== End of left column ======================= -->
+
+
+<!-- Right Column (Form Sections) -->
+
+<div class="column col-stepper-container">
+
+    <!-- <a id="back-button-mobile" class="cursor" [routerLink]="[ '/home']"
+        style="padding-left: 20px;padding-top: 5px !important;"><img width="20" style="margin-right: 15px !important;"
+            class="back-img" height="20" src="../assets/images/back (2).svg" alt="">
+        <label style="color: black;" for="">Go back</label> </a> -->
+
+    <div class="stepper-container">
+
+        <!-- Mobile -->
+        <h2 id="mobileheader" class="header-cls" #mobileheader>Open an Additional Account</h2>
+
+        <mat-horizontal-stepper labelPosition="bottom" #stepper [linear]="true">
+
+            <!-- Required Documents -->
+            <mat-step>
+                <form style="padding-top: 0px !important;">
+                    <ng-template matStepLabel state="check">Required Documents</ng-template>
+                    <h3 class="docs-required"> Documents required for opening a savings account: </h3>
+                    <ul>
+                        <li>Means of ID of the Signatories</li>
+                    </ul>
+
+                    <h3 class="docs-required"> Documents required for opening a current account: </h3>
+                    <ul>
+                        <li>Two Reference Forms (This is only required for existing savings / salary account holders who want to open current accounts)</li>
+                        <li>Means of ID of the Signatories</li>
+                    </ul>
+
+                    <div class="row" style="padding-top:10px !important;">
+                        <div class="document-cont">
+                            <a style="color: #113998; max-width: 310px !important;" class="custom-file-upload" href=".././assets/templates/sample.pdf" download="sample.pdf" mat-button>
+                                Download Reference Form
+                                <img class="downloadicon" src="../.././assets/images/download.png" width="20px"
+                                    height="15px">
+                            </a>
+                        </div>
+                    </div>
+
+                    <h3 class="docs-required"> Documents required for opening a corporate account: </h3>
+                    <ul>
+                        <li>Customer’s Instruction / Board Resolution</li>
+                        <li>BVN of directors (captured on instruction)</li>
+                        <li>Means of ID of at least two directors (where applicable) </li>
+                        <li>Means of ID of the Signatories</li>
+                    </ul>
+                    <div class="row" style="padding-top:10px !important;">
+                        <div class="document-cont">
+                            <a style="color: #113998; max-width: 410px !important;" class="custom-file-upload" href=".././assets/templates/sample.pdf" download="sample.pdf" mat-button>
+                                Download corporate account opening forms
+                                <img class="downloadicon" src="../.././assets/images/download.png" width="20px"
+                                    height="15px">
+                            </a>
+                        </div>
+                    </div>
+
+                    <p>For further enquiries, please contact the Customer Contact Centre on 0700 909 909 909 or CustomerCareNigeria@stanbicibtc.com
+                    </p>
+
+                    <div>
+                        <button style="color: #FFFFFF; background-color: #113998 ; width: 100% !important; height: 50px; text-transform: uppercase;" mat-button (click)="proceedRequiredDocs(stepper)">
+                            Proceed
+                        </button>
+                    </div>
+                </form>
+            </mat-step>
+
+            <!-- Additional Account Type and Option -->
+            <mat-step [stepControl]="accountOptionFormGroup">
+                <form style="padding-top: 8px !important;" [formGroup]="accountOptionFormGroup">
+
+                    <!-- Account Type -->
+                    <ng-template matStepLabel matStepperIcon="">
+                        Select Additional Account Type </ng-template>
+                    <h4>Please select an account</h4>
+                    <mat-form-field class="w-100">
+                        <mat-label>What type of account will you like to open?</mat-label>
+
+                        <mat-select formControlName="accountTypeCtrl" class="select-dropdown" placeholder="Please select the account type">
+                            <mat-option (click)="onSelectAccountType(option)" *ngFor="let option of accountTypes" [value]="option">
+                                {{option}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+                    <div *ngIf="showUploadRequiredDocFormForBusinessAccountForPersonalAccount">
+                        <h6 style="background-color: rgba(17, 57, 152, 0.16); font-weight: lighter; padding:20px !important; font-size: medium;">
+                            Requirements for Opening an Additional Account:
+                            <ul>
+                                <li>An existing Tier 3 account or Current Account </li>
+                                <li>A valid means of ID</li>
+                                <li>Two Suitable References. (Required for savings and salary account holders to open a current account)</li>
+                            </ul>
+                        </h6>
+                    </div>
+                    <div *ngIf="showUploadRequiredDocFormForBusinessAccount">
+                        <h6 style="background-color: rgba(17, 57, 152, 0.16); font-weight: lighter; padding:20px !important; font-size: medium;">
+                            Requirements for Opening an Additional Account:
+                            <ul>
+                                <li>An existing compliant Business Account</li>
+                                <li>Instruction / Board Resolution signed by either two directors or a director and a secretary </li>
+                                <li>BVN of All Signatories and two Directors (appended on instruction)</li>
+                                <li>Means of IDs of two directors and all Signatories </li>
+                            </ul>
+                        </h6>
+                    </div>
+
+                    <br>
+
+                    <!-- Account Option -->
+                    <ng-template matStepLabel matStepperIcon="">
+                        Select Additional Account Option </ng-template>
+                    <h4>Please select an account option</h4>
+
+                    <!-- account type for personal -->
+                    <mat-form-field class="w-100" *ngIf="!showCorporateAcctTab">
+                        <mat-label>Select type of account</mat-label>
+
+                        <mat-select formControlName="optTypeCtrl" class="select-dropdown" placeholder="Please select the account type">
+                            <mat-option (click)="onSelectAccountOption(option)" *ngFor="let option of optionTypes" [value]="option">
+                                {{option}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+                    <!-- Account type for corporate/business -->
+                    <mat-form-field class="w-100" *ngIf="showCorporateAcctTab">
+                        <mat-label>Type of account</mat-label>
+
+                        <mat-select formControlName="optTypeCtrl" class="select-dropdown" placeholder="account type">
+                            <mat-option value='Current Account'>
+                                Current Account
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+                    <!-- Currency options -->
+                    <mat-form-field class="w-100" *ngIf="showCurrencyOption">
+                        <mat-label>Select a currency</mat-label>
+
+                        <mat-select formControlName="currencyOptionCtrl" class="select-dropdown" placeholder="Please select the currency">
+                            <mat-option (click)="onSelectCurrency(currency)" *ngFor="let currency of currencyOptionTypes" [value]="currency">
+                                {{currency}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+                    <mat-form-field class="w-100" *ngIf="showFixedCurrencyOption">
+                        <mat-label>Currency</mat-label>
+
+                        <mat-select formControlName="currencyOptionCtrl" class="select-dropdown" placeholder="Please select the currency" [(value)]="fixedCurrency" disabled>
+                            <mat-option [value]="fixedCurrency">
+                                {{fixedCurrency}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+                    <!-- Foreign currency conditions -->
+                    <div *ngIf="showCurrencyConditions">
+
+                        <div class="w-100">
+                            <mat-form-field appearance="fill" class="w-100">
+                                <mat-label>Purpose if account</mat-label>
+                                <input matInput autocomplete="off" placeholder="Please state the purpose and reasons for opening this account" type="text" required>
+                            </mat-form-field>
+
+                            <mat-form-field appearance="fill" class="w-100">
+                                <mat-label>Source of funds</mat-label>
+                                <input matInput autocomplete="off" placeholder="Provide details of specific source of funds passing through the account and how fx is sourced" type="text" required>
+                            </mat-form-field>
+
+                            <mat-form-field appearance="fill" class="w-100">
+                                <mat-label>Expected cumulative balance</mat-label>
+                                <input matInput autocomplete="off" placeholder="Expected cumulative balance" type="text" required>
+                            </mat-form-field>
+                        </div>
+
+                        <h6 style="background-color: rgba(17, 57, 152, 0.16); font-weight: lighter; padding:20px !important; font-size: medium;">
+                            NB: Credit restriction may apply. This information must be updated when the expected inflow changes
+                        </h6>
+                    </div>
+
+                    <!-- Spinner -->
+                    <section *ngIf="showSpinner">
+                        <mat-progress-bar class="example-margin" [color]="color" [mode]="mode" [value]="value" [bufferValue]="bufferValue">
+                        </mat-progress-bar>
+                    </section>
+
+                    <button style="background-color: rgba(3, 150, 253, 0.16) ; width: 100%; text-transform: uppercase;
+                    color: #0396FD; height: 50px;" mat-button matStepperPrevious>Back</button>
+                    <button mat-flat-button class="big-buttonStyles" [ngClass]="{'primary': class=='primary'}" matStepperSave and Proceed (click)="proceedAccountTypeForm(stepper)" [disabled]="isAwaitingResponse || accountOptionFormGroup.invalid">
+                        Proceed
+                    </button>
+
+                </form>
+            </mat-step>
+
+            <!-- Authentication -->
+            <mat-step [stepControl]="accountFormGroup">
+                <form [formGroup]="accountFormGroup">
+
+                    <ng-template matStepLabel>Fill in the correct details</ng-template>
+                    <h4>Please provide in the correct details</h4>
+
+                    <!-- Spinner -->
+                    <section *ngIf="showSpinner">
+                        <mat-progress-bar class="example-margin" [color]="color" [mode]="mode" [value]="value" [bufferValue]="bufferValue">
+                        </mat-progress-bar>
+                    </section>
+                    <div class="w-100">
+                        <mat-form-field appearance="fill" class="w-100">
+                            <mat-label>Account Number</mat-label>
+                            <input matInput autocomplete="off" maxlength="10" minlength="10" placeholder="Enter Account Number" formControlName="accountNoCtrl" type="text" required>
+                            <mat-hint align="end">Max 10 characters</mat-hint>
+                            <mat-error *ngIf="accountFormGroup.get('accountNoCtrl').hasError('required')">
+                                Account Number is required </mat-error>
+                            <mat-error *ngIf="accountFormGroup.get('accountNoCtrl').hasError('pattern')">
+                                Only numbers are allowed </mat-error>
+
+                        </mat-form-field>
+                    </div>
+                    <div class="w-100">
+
+                        <mat-form-field appearance="fill" class="w-100">
+                            <mat-label>Phone Number</mat-label>
+                            <input matInput autocomplete="off" maxlength="11" minlength="11" placeholder="Enter Phone Number" formControlName="phoneNoCtrl" required>
+                            <mat-hint align="end">Max 11 characters</mat-hint>
+                            <mat-error *ngIf="accountFormGroup.get('phoneNoCtrl').hasError('required')">
+                                Phone Number is required </mat-error>
+                            <mat-error *ngIf="accountFormGroup.get('phoneNoCtrl').hasError('pattern')">
+                                Only numbers are allowed </mat-error>
+                            <mat-error *ngIf="accountFormGroup.get('phoneNoCtrl').hasError('maxlength')">
+                                Phone Number must be 11 characters </mat-error>
+
+                        </mat-form-field>
+                    </div>
+                    <div class="w-100" *ngIf="bvnIsValid">
+                        <button style="background-color: rgba(3, 150, 253, 0.16) ; width: 100%; text-transform: uppercase;
+                    color: #0396FD; height: 50px;" mat-button matStepperPrevious>Back</button>
+                        <button mat-flat-button class="big-buttonStyles" [ngClass]="{'primary': class=='primary'}" [ngClass]="{'disabled': isAwaitingResponse || accountFormGroup.invalid}" mat-button [disabled]="isAwaitingResponse || accountFormGroup.invalid" (click)="proceedFromAccountForm(stepper)">Proceed</button>
+                    </div>
+
+                </form>
+
+                <!-- Validate BVN if nill -->
+                <form action="" [formGroup]="bvnUpdateFormGroup" *ngIf="!bvnIsValid">
+                    <mat-form-field class="w-100">
+                        <mat-label>Enter BVN number</mat-label>
+                        <input matInput autocomplete="off" placeholder="Enter BVN number" formControlName="bvnId" type="text" minlength="11" maxlength="11" (change)="onBVNChange()">
+                    </mat-form-field>
+
+                    <mat-form-field class="w-100">
+                        <mat-label>BVN Phone Number</mat-label>
+                        <input matInput autocomplete="off" placeholder="BVN Phone Number" formControlName="phoneNumber" type="text" minlength="11" maxlength="11" [disabled]="true">
+                    </mat-form-field>
+
+                    <!-- BVN Spinner -->
+                    <section *ngIf="showBVNSpinner">
+                        <mat-progress-bar class="example-margin" [color]="color" [mode]="mode" [value]="value" [bufferValue]="bufferValue">
+                        </mat-progress-bar>
+                    </section>
+
+                    <div class="w-100">
+                        <button style="background-color: rgba(3, 150, 253, 0.16) ; width: 100%; text-transform: uppercase;
+                    color: #0396FD; height: 50px;" mat-button matStepperPrevious>Back</button>
+                        <button mat-flat-button class="big-buttonStyles" [ngClass]="{'primary': class=='primary'}" [ngClass]="{'disabled': isAwaitingResponse || bvnUpdateFormGroup.invalid}" mat-button [disabled]="isAwaitingResponse || bvnUpdateFormGroup.invalid || !bvnIsSet"
+                            (click)="proceedBVNForm(stepper)">Proceed</button>
+                    </div>
+                </form>
+
+            </mat-step>
+
+            <!-- Identification, Empoyment Status and Occupation  -->
+            <mat-step *ngIf="!showCorporateAcctTab" [stepControl]="employmentFormGroup">
+                <form style="padding-top: 8px !important;" [formGroup]="employmentFormGroup">
+                    <ng-template matStepLabel matStepperIcon="">Identification, Empoyment Status and Occupation
+                    </ng-template>
+
+                    <!-- Id Details -->
+                    <h4>Please select an identification type</h4>
+                    <mat-form-field class="w-100">
+                        <mat-label>Select type of ID</mat-label>
+
+                        <mat-select formControlName="idTypeCtrl" class="select-dropdown" placeholder="Please select the ID type">
+                            <mat-option (click)="onSelectIdType(option)" *ngFor="let option of idTypes" [value]="option">
+                                {{option}}
+                            </mat-option>
+                        </mat-select>
+                        <mat-hint *ngIf="showOtherIdHint">Please attach your valid work / residence permit in addition to your ID card
+                        </mat-hint>
+                    </mat-form-field>
+
+                    <mat-form-field class="w-100" *ngIf="!showOtherIdHint">
+                        <mat-label *ngIf="!showNinInfo">Enter the ID number</mat-label>
+                        <mat-label *ngIf="showNinInfo">Enter your National Identity Number (NIN)</mat-label>
+
+                        <input matInput autocomplete="off" placeholder="Enter the ID number" formControlName="idNumber" type="text" (change)="onIdNumberKeyUp()">
+
+                        <mat-hint *ngIf="showNinInfo">Forgotten your NIN? Dial *346# to retrieve your National Identification Number</mat-hint>
+
+                    </mat-form-field>
+
+                    <!-- ID Validation Spinner -->
+                    <section *ngIf="showIdSpinner">
+                        <mat-progress-bar class="example-margin" [color]="color" [mode]="mode" [value]="value" [bufferValue]="bufferValue">
+                        </mat-progress-bar>
+                    </section>
+
+                    <br>
+
+                    <!-- Employment Status -->
+                    <ng-template matStepLabel matStepperIcon="">
+                        Empoyment Status and Occupation </ng-template>
+                    <h4>Please select employment status</h4>
+                    <mat-form-field class="w-100">
+                        <mat-label>Select employment status</mat-label>
+
+                        <mat-select formControlName="employmentStatus" class="select-dropdown" placeholder="Please select your employment status">
+                            <mat-option (click)="onSelectEmploymentStatus(option)" *ngFor="let option of employmentStatus" [value]="option">
+                                {{option}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+                    <!-- Occupation -->
+                    <mat-form-field class="w-100" *ngIf="showOccupationAndBusiness">
+                        <mat-label>Select occupation</mat-label>
+
+                        <mat-select formControlName="occupation" class="select-dropdown" placeholder="Please select your occupation">
+                            <mat-option (click)="onSelectOccupationType(option)" *ngFor="let option of occupation" [value]="option">
+                                {{option}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+                    <mat-form-field class="w-100" *ngIf="showOccupationAndBusiness && showOtherOccupation">
+                        <mat-label>Enter Occupation</mat-label>
+
+                        <input matInput autocomplete="off" placeholder="Enter your occupation" formControlName="occupation" type="text">
+
+                    </mat-form-field>
+
+                    <!-- Industry -->
+                    <mat-form-field class="w-100" *ngIf="showOccupationAndBusiness">
+                        <mat-label>Select industry</mat-label>
+
+                        <mat-select formControlName="industry" class="select-dropdown" placeholder="Please select your industry">
+                            <mat-option *ngFor="let option of industry" [value]="option">
+                                {{option}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+                    <!-- Nature of business -->
+                    <mat-form-field class="w-100" *ngIf="showOccupationAndBusiness && showNatureOfBusiness">
+                        <mat-label>Enter the nature of business</mat-label>
+
+                        <input matInput autocomplete="off" placeholder="Enter the nature of your business" formControlName="natureOfBusiness" type="text">
+
+                    </mat-form-field>
+
+                    <!-- Education -->
+                    <mat-form-field class="w-100" *ngIf="showStudentField">
+                        <mat-label>Enter your level of education</mat-label>
+
+                        <input matInput autocomplete="off" placeholder="your level of education" formControlName="levelOfEducation" type="text">
+
+                    </mat-form-field>
+
+                    <mat-form-field class="w-100" *ngIf="showStudentField">
+                        <mat-label>Enter the name of your institution</mat-label>
+
+                        <input matInput autocomplete="off" placeholder="Enter the name of your institution" formControlName="nameOfInstitution" type="text">
+
+                    </mat-form-field>
+
+                    <mat-form-field class="w-100" *ngIf="showOccupationAndBusiness && showEmployerField">
+                        <mat-label>Enter the name of your employer</mat-label>
+
+                        <input matInput autocomplete="off" placeholder="Enter the name of your employer" formControlName="nameOfEmployer" type="text">
+
+                    </mat-form-field>
+
+                    <!-- Income range -->
+                    <mat-form-field class="w-100">
+                        <mat-label>Select income range</mat-label>
+
+                        <mat-select formControlName="incomeRange" class="select-dropdown" placeholder="Please select your income range">
+                            <mat-option *ngFor="let option of incomeRange" [value]="option">
+                                {{option}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+                    <!-- Spinner -->
+                    <section *ngIf="showSpinner">
+                        <mat-progress-bar class="example-margin" [color]="color" [mode]="mode" [value]="value" [bufferValue]="bufferValue">
+                        </mat-progress-bar>
+                    </section>
+
+                    <button style="background-color: rgba(3, 150, 253, 0.16) ; width: 100%; text-transform: uppercase;
+                    color: #0396FD; height: 50px;" mat-button matStepperPrevious>Back</button>
+                    <button mat-flat-button class="big-buttonStyles" [ngClass]="{'primary': class=='primary'}" matStepperSave and Proceed (click)="proceedEmploymentStatusForm(stepper)" [disabled]="!idIsValid || isAwaitingResponse || employmentFormGroup.invalid">
+                        Save and Proceed
+                    </button>
+
+                </form>
+            </mat-step>
+
+            <!-- Referee Section -->
+            <mat-step *ngIf="!showCorporateAcctTab" [stepControl]="refereeFormGroup">
+                <form style="padding-top: 8px !important;" [formGroup]="refereeFormGroup">
+
+                    <ng-template matStepLabel matStepperIcon="">
+                        Debit Card and Referee Information </ng-template>
+
+                    <!-- Debit Card Info -->
+                    <h4>Would you like to have a debit card for this account?</h4>
+
+                    <mat-radio-group aria-label="Select an option" formControlName="requestedDebitCard">
+                        <mat-radio-button class="example-radio-button" *ngFor="let cardOption of cardRadioOptions" (click)="onSelectDebitCardOption(cardOption.name)" [value]="cardOption.value">
+                            {{cardOption.name}}
+                        </mat-radio-button>
+                    </mat-radio-group>
+
+                    <div *ngIf="wantsDebitCard">
+                        <mat-form-field class="w-100">
+                            <mat-label>Preferred Name on Card</mat-label>
+
+                            <input matInput autocomplete="off" placeholder="Enter the preferred name" formControlName="preferredNameOnCard" type="text">
+
+                        </mat-form-field>
+
+                        <mat-form-field class="w-100">
+                            <mat-label>Preferred Pick Up Branch</mat-label>
+
+                            <mat-select formControlName="pickupBranch" class="select-dropdown" placeholder="Please select your preferred pickup branch">
+                                <mat-option *ngFor="let option of branches" [value]="option">
+                                    {{option}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+
+                        <div>
+                            <h6 style="background-color: rgba(17, 57, 152, 0.16); font-weight: lighter; padding:20px !important; font-size: medium;">
+                                Please note that your naira account will be debited for the fee and charges for producing the card. Also note that only one mastercard is allowed per currency.
+                            </h6>
+                        </div>
+                    </div>
+                    <br> <br>
+
+                    <!-- Referee Info -->
+                    <div *ngIf="((selectedCurrecyOption === 'Current Account' && !isCurrentAcct))">
+                        <!-- <div> -->
+
+                        <div class="row" style="padding-top:10px !important;" *ngIf="refIsOtherBank">
+                            <div class="" style="width: 100%; height: 100%;">
+                                <a style="color: #113998; max-width: 310px !important;" class="custom-file-upload" href=".././assets/templates/sample.pdf" download="sample.pdf" mat-button>
+                                    Download Reference Form
+                                    <img class="downloadicon" src="../.././assets/images/download.png" width="20px"
+                                        height="15px">
+                                </a>
+                            </div>
+                        </div><br>
+
+                        <h4>First Reference</h4>
+                        <mat-form-field class="w-100">
+                            <mat-label>Select referee's bank</mat-label>
+
+                            <mat-select formControlName="firstRefereeBank" class="select-dropdown" placeholder="Please select your first referee's bank">
+                                <mat-option (click)="onRefereeBankType(option, 'first')" *ngFor="let option of refereeTypes" [value]="option">
+                                    {{option}}
+                                </mat-option>
+                            </mat-select>
+                            <mat-hint *ngIf="!firstRefIsStanbic">
+                                Note: you will be required to download, execute and upload reference
+                            </mat-hint>
+                        </mat-form-field>
+
+                        <mat-form-field class="w-100" *ngIf="firstRefIsStanbic">
+                            <mat-label>Enter the referee's account number</mat-label>
+
+                            <input matInput autocomplete="off" placeholder="Enter the referee's account number" formControlName="firstRefereeAccountNumber" type="text" minlength="10" maxlength="10" (change)="onRefereeAccountNumberKeyUp('first')">
+
+                        </mat-form-field>
+                        <mat-form-field class="w-100" *ngIf="firstRefIsStanbic && this.refereeFormGroup.controls.firstRefereeName.value">
+                            <mat-label>Referee name</mat-label>
+
+                            <input matInput autocomplete="off" placeholder="Referee name" formControlName="firstRefereeName" type="text" disabled>
+
+                        </mat-form-field>
+
+                        <h4>Second Reference</h4>
+                        <mat-form-field class="w-100">
+                            <mat-label>Select referee's bank</mat-label>
+
+                            <mat-select formControlName="secondRefereeBank" class="select-dropdown" placeholder="Please select your second referee's bank">
+                                <mat-option (click)="onRefereeBankType(option, 'second')" *ngFor="let option of refereeTypes" [value]="option">
+                                    {{option}}
+                                </mat-option>
+                            </mat-select>
+                            <mat-hint *ngIf="!secondRefIsStanbic">
+                                Note: you will be required to download, execute and upload reference
+                            </mat-hint>
+                        </mat-form-field>
+
+                        <!-- Upload Ref doc -->
+                        <div *ngIf="refIsOtherBank">
+                            <div class="align-left upload-cont" style="padding: 13px !important; margin-top: 15px !important;">
+                                <label for="file-upload" class="custom-file-upload" (click)="fileInput.click()">Upload
+                                    Reference Form
+                                    <img class="downloadicon" src="../.././assets/images/upload2.png" width="20px"
+                                        height="15px"></label>
+                                <input hidden accept="image/x-png,image/gif,image/jpeg,application/pdf" (change)="onFormControlChanged($event, 'Reference Form')" #fileInput type="file" formContolName="fileInputCtrl" id="file">
+                            </div>
+                            <div *ngIf="fileResult" class="selected-file">
+                                <label class="file-text" for="">
+                                    {{fileResult}}
+                                    <img style="margin-left: 10px;" src="./assets/images/Group773.png" height="15"
+                                        width="15">
+                                </label>
+                                <mat-icon class="cancel-icn" (click)="removeSelectedFile('Reference Form')">cancel
+                                </mat-icon>
+                            </div>
+
+                            <div>
+                                <h6 style="background-color: rgba(17, 57, 152, 0.16); font-weight: lighter; padding:20px !important; font-size: medium;">
+                                    The valid file types to upload are images and pdf files
+                                </h6>
+                            </div>
+                        </div>
+
+                        <mat-form-field class="w-100" *ngIf="secondRefIsStanbic">
+                            <mat-label>Enter the referee's account number</mat-label>
+
+                            <input matInput autocomplete="off" placeholder="Enter the referee's account number" formControlName="secondRefereeAccountNumber" type="text" minlength="10" maxlength="10" (change)="onRefereeAccountNumberKeyUp('second')">
+
+                        </mat-form-field>
+                        <mat-form-field class="w-100" *ngIf="secondRefIsStanbic && this.refereeFormGroup.controls.secondRefereeName.value">
+                            <mat-label>Referee name</mat-label>
+
+                            <input matInput autocomplete="off" placeholder="Referee name" formControlName="secondRefereeName" type="text" disabled>
+
+                        </mat-form-field>
+
+                        <!-- Spinner -->
+                        <section *ngIf="showRefSpinner">
+                            <mat-progress-bar class="example-margin" [color]="color" [mode]="mode" [value]="value" [bufferValue]="bufferValue">
+                            </mat-progress-bar>
+                        </section>
+                    </div>
+
+                    <!-- Spinner -->
+                    <section *ngIf="showSpinner">
+                        <mat-progress-bar class="example-margin" [color]="color" [mode]="mode" [value]="value" [bufferValue]="bufferValue">
+                        </mat-progress-bar>
+                    </section>
+
+                    <button style="background-color: rgba(3, 150, 253, 0.16) ; width: 100%; text-transform: uppercase;
+                    color: #0396FD; height: 50px;" mat-button matStepperPrevious>Back</button>
+                    <button mat-flat-button class="big-buttonStyles" [ngClass]="{'primary': class=='primary'}" matStepperSave and Proceed (click)="proceedRefereeInformationForm(stepper)" [disabled]="isAwaitingResponse || refereeFormGroup.invalid">
+                        Save and Proceed
+                    </button>
+
+                </form>
+            </mat-step>
+
+            <!-- Upload Reference Documents and ID -->
+            <mat-step [stepControl]="uploadSignatureFormWithExistingSavings" *ngIf="((selectedCurrecyOption === 'Current Account' && !isCurrentAcct))">
+                <form style="padding-top: 20px !important;">
+                    <ng-template matStepLabel state="check"> Upload Documents </ng-template>
+
+                    <!-- ID -->
+                    <div>
+                        <div class="row" style="padding-top:10px !important;">
+                            <div class="" style="width: 100%; height: 100%;">
+                                <a style="color: #113998; max-width: 310px !important;" class="custom-file-upload" href=".././assets/templates/sample.pdf" download="sample.pdf" mat-button>
+                                    Download Reference Form
+                                    <img class="downloadicon" src="../.././assets/images/download.png" width="20px"
+                                        height="15px">
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="align-left upload-cont" style="padding: 13px !important; margin-top: 15px !important;">
+                            <label for="file-upload" class="custom-file-upload" (click)="idFileInput.click()">Means of
+                                ID
+                                and T&C
+                                <img class="downloadicon" src="../.././assets/images/upload2.png" width="20px"
+                                    height="15px"></label>
+                            <input hidden accept="image/x-png,image/gif,image/jpeg,application/pdf" (change)="onFormControlChanged($event, 'Identification Card')" #idFileInput type="file" formContolName="identificationCard" id="idFileInput">
+                        </div>
+                        <div *ngIf="meansOfIdentification" class="selected-file">
+                            <label class="file-text" for="">
+                                {{meansOfIdentification}}
+                                <img style="margin-left: 10px;" src="./assets/images/Group773.png" height="15"
+                                    width="15">
+                            </label>
+                            <mat-icon class="cancel-icn" (click)="removeSelectedFile('Identification Card')">cancel
+                            </mat-icon>
+                        </div>
+                    </div>
+
+                    <!-- References -->
+                    <div>
+                        <div class="align-left upload-cont" style="padding: 13px !important; margin-top: 15px !important;">
+                            <label for="file-upload" class="custom-file-upload" (click)="fileInput.click()">Upload
+                                Reference Form
+                                <img class="downloadicon" src="../.././assets/images/upload2.png" width="20px"
+                                    height="15px"></label>
+                            <input hidden accept="image/x-png,image/gif,image/jpeg,application/pdf" (change)="onFormControlChanged($event, 'Reference Form')" #fileInput type="file" formContolName="fileInputCtrl" id="file">
+                        </div>
+                        <div *ngIf="fileResult" class="selected-file">
+                            <label class="file-text" for="">
+                                {{fileResult}}
+                                <img style="margin-left: 10px;" src="./assets/images/Group773.png" height="15"
+                                    width="15">
+                            </label>
+                            <mat-icon class="cancel-icn" (click)="removeSelectedFile('Reference Form')">cancel
+                            </mat-icon>
+                        </div>
+
+                        <div>
+                            <h6 style="background-color: rgba(17, 57, 152, 0.16); font-weight: lighter; padding:20px !important; font-size: medium;">
+                                The valid file types to upload are images and pdf files
+                            </h6>
+                        </div>
+                    </div>
+
+                    <button style="background-color: rgba(3, 150, 253, 0.16) ; width: 100%; text-transform: uppercase;
+                    color: #0396FD; height: 50px;" mat-button matStepperPrevious>Back</button>
+                    <button mat-flat-button class="big-buttonStyles btn-cont" [ngClass]="{'primary': class=='primary'}" [disabled]="uploadSignatureFormWithExistingSavings.invalid" matStepperNext (click)="proceedFromUploadReferenceForm(stepper)">Save and Proceed</button>
+
+                </form>
+            </mat-step>
+
+            <!-- Upload Means of Identification -->
+            <mat-step [stepControl]="uploadSignatureForm" *ngIf="!showCorporateAcctTab && (selectedCurrecyOption !== 'Current Account' || isCurrentAcct)">
+                <form style="padding-top: 20px !important;">
+                    <ng-template matStepLabel state="check"> Upload Means of Identification</ng-template>
+                    <h4>
+                        Kindly upload a means of identification
+                    </h4>
+
+                    <div class="align-left upload-cont" style="padding: 13px !important; margin-top: 15px !important;">
+                        <label for="file-upload" class="custom-file-upload" (click)="idFileInput.click()">Means of ID
+                            <img class="downloadicon" src="../.././assets/images/upload2.png" width="20px"
+                                height="15px"></label>
+                        <input hidden accept="image/x-png,image/gif,image/jpeg,application/pdf" (change)="onFormControlChanged($event, 'Identification Card')" #idFileInput type="file" formContolName="identificationCard" id="idFileInput">
+                    </div>
+                    <div>
+                        <div *ngIf="meansOfIdentification" class="selected-file">
+                            <label class="file-text" for="">
+                                {{meansOfIdentification}}
+                                <img style="margin-left: 10px;" src="./assets/images/Group773.png" height="15"
+                                    width="15">
+                            </label>
+                            <mat-icon class="cancel-icn" (click)="removeSelectedFile('Identification Card')">cancel
+                            </mat-icon>
+                        </div>
+
+                        <button style="background-color: rgba(3, 150, 253, 0.16) ; width: 100%; text-transform: uppercase;
+                    color: #0396FD; height: 50px;" mat-button matStepperPrevious>Back</button>
+                        <button mat-flat-button class="big-buttonStyles btn-cont" [ngClass]="{'primary': class=='primary'}" [disabled]="!meansOfIdentification" matStepperNext (click)="populateDocWithSignatureSavings(stepper)">Proceed</button>
+
+
+                    </div>
+                </form>
+            </mat-step>
+
+            <!-- Authentication -->
+            <mat-step *ngIf="!showCorporateAcctTab" [stepControl]="cardFormGroup">
+                <form [formGroup]="cardFormGroup">
+
+                    <ng-template matStepLabel>Select Authentication</ng-template>
+
+                    <div>
+                        <label id="example-radio-group-label" class="example-radio-group-label">Do you have a debit
+                            card?</label>
+
+                        <mat-radio-group aria-labelledby="example-radio-group-label" formControlName="debitCardOption" class="example-radio-group">
+                            <mat-radio-button class="example-radio-button" *ngFor="let cardOption of cardOptions" (click)="onSelectDebitCard(cardOption)" [value]="cardOption">
+                                {{cardOption}}
+                            </mat-radio-button>
+                        </mat-radio-group>
+
+
+                        <section *ngIf="showSpinner">
+                            <mat-progress-bar class="example-margin" [color]="color" [mode]="mode" [value]="value" [bufferValue]="bufferValue">
+                            </mat-progress-bar>
+                        </section>
+                    </div>
+
+
+                    <div>
+                        <button style="background-color: rgba(3, 150, 253, 0.16) ; width: 100%; text-transform: uppercase;
+                    color: #0396FD; height: 50px;" mat-button matStepperPrevious>Back</button>
+                        <button style="color: #FFFFFF ;
+                              background-color: #113998 ; width: 100% !important; height: 50 px; text-transform: uppercase;" [ngClass]="{'disabled': cardFormGroup.invalid || debitCardValue === 'Yes'}" mat-button [disabled]="cardFormGroup.invalid || debitCardValue === 'Yes'"
+                            (click)="proceedFromRadioGroupForm()" matStepperNext>Proceed</button>
+                    </div>
+
+                </form>
+            </mat-step>
+
+            <mat-step class="align-left" *ngIf="showUploadSignatureForm && !showCorporateAcctTab">
+                <form>
+
+                    <ng-template matStepLabel matStepperIcon="phone">Upload signature</ng-template>
+
+                    <h4>Please upload a signature</h4>
+
+                    <section *ngIf="showSpinner">
+                        <mat-progress-bar class="example-margin" [color]="color" [mode]="mode" [value]="value" [bufferValue]="bufferValue">
+                        </mat-progress-bar>
+                    </section>
+                    <div class="align-left upload-cont" style="padding: 13px !important;">
+                        <label for="file-upload" class="custom-file-upload" (click)="fileInputCtrl.click()">Choose File
+                        </label>
+
+                        <!-- <button type="button" class="upload-btn" mat-raised-button (click)="fileInput.click()">Choose File</button> -->
+                        <input hidden accept="image/x-png,image/gif,image/jpeg" (change)="onSignatureFileSelected($event)" #fileInputCtrl type="file" formContolName="fileInputCtrl" id="file">
+                    </div>
+                    <div *ngIf="selectedSignaturefile" class="selected-file">
+                        <label class="file-text" for="">
+                            {{selectedSignaturefile}}
+                            <img style="    margin-left: 10px;
+                " src="./assets/images/Group773.png" height="15" width="15">
+
+                        </label>
+
+                        <mat-icon class="cancel-icn" (click)="removeSelectedFile('Signature')">cancel</mat-icon>
+                    </div>
+                    <div class="fileError-cls">
+                        {{referenceFormError}}
+                    </div>
+
+                    <h5 style="background-color: rgba(17, 57, 152, 0.16); font-weight: lighter; padding:20px !important; font-size: medium;">
+                        <div style="text-align: left !important;">
+
+                            Please note that you are required to upload a signature on a plain piece of white paper <br>
+                            <b>Note:</b>You are required to upload as an image
+                        </div>
+                    </h5>
+
+                    <!-- T&C -->
+                    <section class="example-section">
+                        <mat-checkbox class="example-margin" formControlName="TermsAndConditions" required [checked]="iAgree" (change)="onClickAgree($event.checked)">I Have Read And Accepted The <a href=".././assets/templates/Personal Banking T&C.pdf" target="blank" style="color: #113998;">Terms and Conditons</a>
+                        </mat-checkbox>
+                    </section>
+
+                    <button style="background-color: rgba(3, 150, 253, 0.16) ; width: 100%; text-transform: uppercase;
+                    color: #0396FD; height: 50px;" mat-button matStepperPrevious>Back</button>
+                    <button mat-flat-button class="big-buttonStyles btn-cont" [ngClass]="{'primary': class=='primary'}" [disabled]="!selectedSignaturefile || showSpinner || !iAgree" (click)="initiateOTP(stepper)">Request
+                        OTP</button>
+
+                    <!-- <button mat-button (click)="stepper.next()"></button> -->
+                </form>
+            </mat-step>
+
+            <!-- Upload Document for CORPORATE/BUSINESS ACCOUNT -->
+            <mat-step *ngIf="showCorporateAcctTab" [stepControl]="DocumentsFormGroup">
+                <!-- [completed]="isCompleted" -->
+                <form [formGroup]="DocumentsFormGroup">
+
+                    <ng-template matStepLabel state="check" style="padding-bottom: 80px !important;">Upload Documents
+                    </ng-template>
+
+                    <div>
+                        <div class="row" style="padding-top:10px !important;">
+                            <div class="" style="width: 100%; height: 100%;">
+                                <a style="color: #113998;" class="custom-file-upload" href=".././assets/templates/sample.pdf" download="sample.pdf" mat-button>
+                                    Download corporate account opening forms
+                                    <img class="downloadicon" src="../.././assets/images/download.png" width="20px"
+                                        height="15px">
+                                </a>
+                            </div>
+                        </div>
+
+                        <h6 style="background-color: rgba(17, 57, 152, 0.16); font-weight: lighter; padding:20px !important; font-size: medium;">
+                            <b>
+                                Your existing account is a corporate account, By uploading the forms below you
+                                would be creating an additional corporate account.
+                                <br>
+                                For accounts without directors (sole proprietors, entrepreneurs, etc), kindly upload the
+                                means of ID of the signatories
+                                <br>
+                                Ensure that the business address, BVN of the signatories and two directors and TIN are
+                                appended on the instruction
+                            </b>
+                            <br>
+                            <p>
+                                Please upload forms below to proceed
+                            </p>
+                        </h6>
+                    </div>
+                    <div class="align-left upload-cont" style="padding: 13px !important; margin-bottom: 20px !important;">
+                        <label for=" " class="custom-file-upload" (click)="IntroLetter.click()">Instruction on
+                            letterhead / Board
+                            resolution
+                            <img class="downloadicon" src="../.././assets/images/upload2.png" width="20px"
+                                height="15px"></label>
+                        <input hidden accept="image/x-png,image/gif,image/jpeg,application/pdf" (click)="onFormControlClicked($event)" required (change)="onFormControlChanged($event,'IntroLetter')" #IntroLetter type="file" formContolName="IntroLetter" id="file">
+                    </div>
+
+                    <div>
+                        <div *ngIf="IntroLetterFileName" class="selected-file">
+                            <label class="file-text" for="">
+                                {{IntroLetterFileName}}
+                                <img style="margin-left: 10px;" src="./assets/images/Group773.png" height="15"
+                                    width="15">
+                            </label>
+                            <mat-icon class="cancel-icn" (click)="removeSelectedFile('IntroLetter')">cancel</mat-icon>
+                        </div>
+                        <div class="fileError-cls">
+                            {{introLetterError}}
+                        </div>
+                    </div>
+
+                    <h4>
+                        For BVN upload, type the digits on word document, save as PDF and upload
+                    </h4>
+
+                    <div class="align-left upload-cont" style="padding: 13px !important; margin-bottom: 20px !important;">
+                        <label for=" " class="custom-file-upload" (click)="directorsBvn.click()">BVN of Directors
+                            <img class="downloadicon" src="../.././assets/images/upload2.png" width="20px"
+                                height="15px"></label>
+                        <input hidden accept="image/x-png,image/gif,image/jpeg,application/pdf" (click)="onFormControlClicked($event)" required (change)="onFormControlChanged($event,'DirectorsID')" #directorsBvn type="file" formContolName="DirectorsID" id="directorsBvn">
+                    </div>
+
+                    <div>
+                        <div *ngIf="bvnDirectorsFileName" class="selected-file">
+                            <label class="file-text" for="">
+                                {{bvnDirectorsFileName}}
+                                <img style="margin-left: 10px;" src="./assets/images/Group773.png" height="15"
+                                    width="15">
+                            </label>
+                            <mat-icon class="cancel-icn" (click)="removeSelectedFile('DirectorsID')">cancel</mat-icon>
+                        </div>
+                        <div class="fileError-cls">
+                            {{_fileError}}
+                        </div>
+                    </div>
+
+                    <h4>
+                        Kindly upload ID card of at least two signatories.
+                    </h4>
+
+                    <div class="align-left upload-cont" style="padding: 13px !important;">
+                        <label for=" " class="custom-file-upload" (click)="SignatoriesID.click()">Add
+                            <!-- means of ID of signatories. -->
+                            <img class="downloadicon" src="../.././assets/images/upload2.png" width="20px"
+                                height="15px"></label>
+                        <input hidden accept="image/x-png,image/gif,image/jpeg,application/pdf" (click)="onFormControlClicked($event)" required (change)="onFormControlChanged($event,'SignatoriesID')" #SignatoriesID type="file" multiple formContolName="SignatoriesID" id="SignatoriesID">
+                    </div>
+
+                    <div>
+                        <div *ngIf="signatoriesIDFileNames.length > 0" class="selected-file">
+                            <label class="file-text" for="" *ngFor="let item of signatoriesIDFileNames; let i=index">
+                                {{item}}
+                                <img style="margin-left: 10px;" src="./assets/images/Group773.png" height="15"
+                                    width="15">
+                            </label>
+                            <mat-icon class="cancel-icn" (click)="removeSelectedFile('SignatoriesID')">cancel</mat-icon>
+                        </div>
+                        <div class="fileError-cls">
+                            {{signatureFileError}}
+                        </div>
+                    </div>
+
+                    <!-- T&C -->
+                    <section class="example-section">
+                        <mat-checkbox class="example-margin" formControlName="TermsAndConditions" required [checked]="iAgree" (change)="onClickAgree($event.checked)">I Have Read And Accepted The <a href=".././assets/templates/Business Account Terms and Conditions.pdf" target="blank" style="color: #113998;" required>Terms and Conditons</a>
+                        </mat-checkbox>
+                    </section>
+
+                    <mat-progress-bar mode="indeterminate" *ngIf="isAwaitingResponse" style="margin-bottom: 20px ;">
+                    </mat-progress-bar>
+
+
+                </form>
+
+                <button style="background-color: rgba(3, 150, 253, 0.16) ; width: 100%; text-transform: uppercase;
+                    color: #0396FD; height: 50px;" mat-button matStepperPrevious>Back</button>
+                <button style=" color: #FFFFFF ;cursor:pointer;
+          background-color: #113998; height: 50px; width:100%; text-transform: uppercase;" mat-button [ngClass]="{'disabled': DocumentsFormGroup.invalid || !iAgree}" [disabled]="DocumentsFormGroup.invalid || !iAgree" (click)="onSubmitDocumentsFormGroup(stepper)">Request OTP</button>
+
+            </mat-step>
+
+            <!-- Verify OTP -->
+            <mat-step class="align-left" *ngIf="showUploadSignatureForm || showCorporateAcctTab" [stepControl]="otpForm">
+                <ng-template matStepLabel>Verify OTP</ng-template>
+                <form [formGroup]="otpForm">
+                    <section *ngIf="showSpinner">
+                        <mat-progress-bar class="example-margin" [color]="color" [mode]="mode" [value]="value" [bufferValue]="bufferValue">
+                        </mat-progress-bar>
+                    </section>
+                    <div class="">
+                        <h4>Please provide the OTP sent to your registered phone number</h4>
+
+                        <mat-form-field appearance="fill" class="w-100">
+                            <mat-label>Enter OTP</mat-label>
+                            <input matInput autocomplete="off" type="password" placeholder="Enter the verification otp" formControlName="otpControl" minlength="5" maxlength="5" required>
+                            <mat-hint align="end" class="cursor" style="color: #1428C4;" (click)="resendOTP()">Resend OTP
+                            </mat-hint>
+                        </mat-form-field>
+                    </div>
+                    <button style="background-color: rgba(3, 150, 253, 0.16) ; width: 100%; text-transform: uppercase;
+                    color: #0396FD; height: 50px;" mat-button matStepperPrevious>Back</button>
+                    <button mat-flat-button class="big-buttonStyles" [ngClass]="{'primary': class=='primary'}" [disabled]="isAwaitingResponse" (click)="submitRequest(stepper)">Submit</button>
+                    <!-- [disabled]="otpForm.invalid || showSpinner" -->
+                </form>
+            </mat-step>
+
+            <!-- Done -->
+            <mat-step>
+                <form>
+                    <ng-template matStepLabel state="check">Done</ng-template>
+
+                    <h5 style="background-color: rgba(100, 231, 152, 0.16);text-align: center; font-weight: lighter; padding:20px !important; font-size: medium;">
+                        <div style="text-align: center !important;">
+                            <img src="./assets/images/Group773.png" height="64" width="64">
+
+                        </div>
+                        Your Additional Account request has been successfully submitted with Ticket ID <br>
+                        <b> {{ticketID}}.</b> <br> Please keep this ID safe for future reference. For further enquiries, contact the Customer Contact Centre on 0700 909 909 909
+                    </h5>
+                </form>
+            </mat-step>
+
+            <ng-template matStepperIcon="check">
+                <mat-icon style="background: #0033A1;">check_circle</mat-icon>
+            </ng-template>
+
+        </mat-horizontal-stepper>
+    </div>
+</div>
+
+<ng-template #iFrameModalTemplate>
+    <iframe style="height: 100%; border: none;" id="quickServiceIFrame" src="" class="col-md-12"></iframe>
+</ng-template>

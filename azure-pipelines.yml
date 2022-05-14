@@ -1,0 +1,65 @@
+# Node.js with Angular
+# Build a Node.js project that uses Angular.
+# Add steps that analyze code, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
+
+trigger:
+- none
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- task: NodeTool@0
+  inputs:
+    versionSpec: '10.x'
+  displayName: 'Install Node.js'
+
+- script: |
+    npm install -g @angular/cli
+    npm install
+  displayName: 'npm install dependencies'
+
+- script: npx ng build --prod
+  displayName: 'Build'
+
+
+
+- script: npx ng test --watch=false --codeCoverage=true
+  displayName: 'Tests'
+
+- task: PublishCodeCoverageResults@1
+  condition: succeededOrFailed()
+  inputs:
+    codeCoverageTool: 'Cobertura'
+    summaryFileLocation: '$(Build.SourcesDirectory)/coverage/App-UI/cobertura-coverage.xml'
+  displayName: 'Publish Code Coverage Results'
+
+
+- task: PublishTestResults@2
+  condition: succeededOrFailed()
+  inputs:
+    testResultsFormat: 'JUnit'
+    # Make sure you've changed testResultsFiles to the one below 
+    testResultsFiles: '**/TESTS-*.xml'
+  displayName: 'Publish Test Results'
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.SourcesDirectory)/dist'
+    ArtifactName: 'web-app'
+    publishLocation: 'Container'
+  displayName: 'Publish Artifacts'
+
+- task: FtpUpload@1
+  displayName: 'FTP Upload:  Deploy App UI To Azure AppService'
+  inputs:
+    credentialsOption: inputs
+    serverUrl: 'ftp://waws-prod-am2-46e16cfc.ftp.p.azurewebsites.windows.net/site/wwwroot/'
+    username: 'sibtc-azure-external-ui\$sibtc-azure-external-ui'
+    password: ZbbchbdTGATA6Ltm0htdje1uis4bKihtxljszSHbT63dpG7cm8C9H1Cr0chq
+    rootDirectory: dist/
+    remoteDirectory: /site/wwwroot/qs-data-update
+
+      
+
